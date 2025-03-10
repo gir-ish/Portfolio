@@ -1,0 +1,77 @@
+/* Base styles */
+.App {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+}
+
+/* Light theme */
+.App.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark theme */
+.App.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Navigation styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1rem;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Divider style */
+.divider {
+  border: 0;
+  height: 3px;
+  background-color: currentColor;
+  margin: 0;
+}
+
+/* Centered container for main content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
