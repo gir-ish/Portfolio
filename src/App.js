@@ -14,22 +14,25 @@ function App() {
   return (
     <div className={darkMode ? "App dark" : "App light"}>
       <Router>
-        <nav>
-          <ul className="nav-links">
-            <li><Link to="/">About</Link></li>
-            <li><Link to="/cv">CV</Link></li>
-            <li><Link to="/publication">Publication</Link></li>
-            <li><Link to="/project">Project</Link></li>
-          </ul>
-          <button className="theme-toggle" onClick={toggleTheme}>
-            {darkMode ? (
-              <FaSun style={{ color: 'yellow', fontSize: '1.5rem' }} />
-            ) : (
-              <FaMoon style={{ color: 'blue', fontSize: '1.5rem' }} />
-            )}
-          </button>
-        </nav>
-        <hr className="divider" />
+        <header className="header">
+          <nav>
+            <ul className="nav-links">
+              <li><Link to="/">About</Link></li>
+              <li><Link to="/cv">CV</Link></li>
+              <li><Link to="/publication">Publication</Link></li>
+              <li><Link to="/project">Project</Link></li>
+            </ul>
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {darkMode ? (
+                <FaSun style={{ color: 'yellow', fontSize: '1.5rem' }} />
+              ) : (
+                <FaMoon style={{ color: 'blue', fontSize: '1.5rem' }} />
+              )}
+            </button>
+          </nav>
+          <hr className="divider" />
+        </header>
+
         <main className="container">
           <Routes>
             <Route path="/" element={<About />} />

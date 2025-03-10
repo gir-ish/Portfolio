@@ -17,6 +17,15 @@
   color: #ffffff;
 }
 
+/* Fixed Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: inherit;
+  z-index: 1000;
+}
+
 /* Navigation styles */
 nav {
   display: flex;
@@ -60,12 +69,14 @@ nav a {
   margin: 0;
 }
 
-/* Centered container for main content */
+/* Main container style */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+  /* Add top margin equal to header height to avoid overlap */
+  margin-top: 100px;
 }
 
 /* Responsive adjustments */
