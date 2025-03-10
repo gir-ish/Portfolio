@@ -17,9 +17,9 @@
   color: #000000;
 }
 
-/* Fixed Header */
+/* Sticky Header */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   background-color: inherit;
@@ -75,8 +75,8 @@ nav a {
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
-  /* Add top margin equal to header height to avoid overlap */
-  margin-top: 100px;
+  /* Optionally add a little extra spacing at the top if needed */
+  padding-top: 1rem;
 }
 
 /* Responsive adjustments */

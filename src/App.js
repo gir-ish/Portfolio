@@ -24,9 +24,9 @@ function App() {
             </ul>
             <button className="theme-toggle" onClick={toggleTheme}>
               {darkMode ? (
-                <FaMoon style={{ color: 'blue', fontSize: '1.5rem' }} />
-              ) : (
                 <FaSun style={{ color: 'yellow', fontSize: '1.5rem' }} />
+              ) : (
+                <FaMoon style={{ color: 'blue', fontSize: '1.5rem' }} />
               )}
             </button>
           </nav>

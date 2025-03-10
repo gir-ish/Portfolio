@@ -27,7 +27,7 @@ function About() {
           <img 
             src={myPhoto} 
             alt="Girish" 
-            style={{ maxWidth: '100%', height: 'auto', borderRadius: '50%' }} 
+            style={{ maxWidth: '50%', height: 'auto', borderRadius: '35%' }} 
           />
         </div>
       </div>
