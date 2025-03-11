@@ -17,7 +17,7 @@ function App() {
         <header className="header">
           <nav>
             <ul className="nav-links">
-              <li><Link to="/about">About</Link></li>
+              <li><Link to="/">About</Link></li>
               <li><Link to="/publication">Publication</Link></li>
               <li><Link to="/project">Project</Link></li>
               <li><Link to="/cv">CV</Link></li>
