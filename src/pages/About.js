@@ -1,5 +1,7 @@
 import React from 'react';
 import myPhoto from '../assets/1.jpg'; // Ensure this path is correct
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { SiGooglescholar } from 'react-icons/si';
 
 function About() {
   return (
@@ -18,8 +20,8 @@ function About() {
             I have worked as a Research Associate at IIIT, Delhi and collaborated with companies like Reliance Jio,
             ARTVIEWINGS LLC, Suratec Co., LTD, and Ulster University.
           </p>
-          <p>I have published research at conferences like Interspeech and ICASSP, and on arXiv.</p>
-          <p>Skilled in Python, Java, C++, TensorFlow, PyTorch, and more.</p>
+          <p>I have published research at conferences like Interspeech and ICASSP, and many are submitted.</p>
+          <p>Skilled in Python, Java, C++, TensorFlow, PyTorch.</p>
         </div>
         
         {/* Photo on the right */}
@@ -40,6 +42,25 @@ function About() {
         <li>Collaborated on a multimodal personality prediction project.</li>
         <li>Gained more experience with deep learning frameworks.</li>
       </ul>
+
+      {/* Contact details section */}
+      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <h2>Contact</h2>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem' }}>
+          <a href="https://linkedin.com/in/girish-b794092a1/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin style={{ fontSize: '2.5rem', color: '#0e76a8' }} />
+          </a>
+          <a href="https://github.com/gir-ish" target="_blank" rel="noopener noreferrer">
+            <FaGithub style={{ fontSize: '2.5rem', color: '#333' }} />
+          </a>
+          <a href="https://scholar.google.com/citations?user=4HIGa7AAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+            <SiGooglescholar style={{ fontSize: '2.5rem', color: '#4285F4' }} />
+          </a>
+          <a href="mailto:girish.research.pr@gmail.com" target="_blank" rel="noopener noreferrer">
+            <FaEnvelope style={{ fontSize: '2.5rem', color: 'red' }} />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
