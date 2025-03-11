@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.888b1eff.css",
-    "main.js": "/Portfolio/static/js/main.f177a3f5.js",
+    "main.js": "/Portfolio/static/js/main.3901b9fc.js",
     "static/js/453.acca0757.chunk.js": "/Portfolio/static/js/453.acca0757.chunk.js",
     "static/media/audio-vault-enc-dec-application.drawio.png": "/Portfolio/static/media/audio-vault-enc-dec-application.drawio.e86d45c37ba7b7992a86.png",
     "static/media/Girish_Resume.pdf": "/Portfolio/static/media/Girish_Resume.dd62eabbda2573cc3696.pdf",
     "static/media/1.jpg": "/Portfolio/static/media/1.88479c9c10f52f472e5d.jpg",
     "index.html": "/Portfolio/index.html",
     "main.888b1eff.css.map": "/Portfolio/static/css/main.888b1eff.css.map",
-    "main.f177a3f5.js.map": "/Portfolio/static/js/main.f177a3f5.js.map",
+    "main.3901b9fc.js.map": "/Portfolio/static/js/main.3901b9fc.js.map",
     "453.acca0757.chunk.js.map": "/Portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.888b1eff.css",
-    "static/js/main.f177a3f5.js"
+    "static/js/main.3901b9fc.js"
   ]
 }
