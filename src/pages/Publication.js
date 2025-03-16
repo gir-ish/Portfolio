@@ -46,7 +46,7 @@ function Publication() {
       {/* Preprints/Submissions Section */}
       <h2 style={{textDecoration: "underline" }}>Preprints / Submitted</h2>
       <ul>
-        <li>
+        {/* <li>
           Modality-Order Matters! A Novel Hierarchical Feature Fusion Method for CoSAm: A Code-Switched Autism Corpus{" "}
           <a 
             href="#" 
@@ -59,6 +59,69 @@ function Publication() {
           <br />
           <div style={{ marginTop: "10px" }}> 
             <em>Authors: Mohd Mujtaba Akhtar*, <strong>Girish*</strong>, Muskaan Singh, Orchid Chetia Phukan</em>
+          </div>
+        </li> */}
+        <li>
+        SOURCE TRACING OF SYNTHETIC SPEECH SYSTEMS THROUGH PARALINGUISTIC PRE-TRAINED REPRESENTATIONS{" "}
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="View PDF"
+          >
+            <FaFilePdf style={{ color: 'red', verticalAlign: 'middle' }} />
+          </a>
+          <br />
+          <div style={{ marginTop: "10px" }}> 
+            <em>Authors: <strong>Girish*</strong>, Mohd Mujtaba Akhtar*, Orchid Chetia Phukan*, Drishti Singh, Swarup Ranjan Behera, Pailla Balakrishna Reddy, Arun Balaji Buduru, Rajesh Sharma</em>
+          </div>
+        </li>
+        <br />
+        <li>
+        ARE MULTIMODAL FOUNDATION MODELS ALL THAT IS NEEDED FOR EMOFAKE DETECTION?{" "}
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="View PDF"
+          >
+            <FaFilePdf style={{ color: 'red', verticalAlign: 'middle' }} />
+          </a>
+          <br />
+          <div style={{ marginTop: "10px" }}> 
+            <em>Authors: Mohd Mujtaba Akhtar*, <strong>Girish*</strong>, Orchid Chetia Phukan*, Swarup Ranjan Behera, Jaya Sai Kiran Patibandla, Pailla Balakrishna Reddy, Arun Balaji Buduru, Rajesh Sharma</em>
+          </div>
+        </li>
+        <br />
+        <li>
+        ARE MAMBA-BASED AUDIO FOUNDATION MODELS THE BEST FIT FOR NON-VERBAL EMOTION RECOGNITION?{" "}
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="View PDF"
+          >
+            <FaFilePdf style={{ color: 'red', verticalAlign: 'middle' }} />
+          </a>
+          <br />
+          <div style={{ marginTop: "10px" }}> 
+            <em>Mohd Mujtaba Akhtar*, Orchid Chetia Phukan*, <strong>Girish*</strong>, Swarup Ranjan Behera, Sanjib, Arun Balaji Buduru, Rajesh Sharma</em>
+          </div>
+        </li>
+        <br />
+        <li>
+        SYNERGIZING NEURAL AUDIO CODEC AND SPECTRAL REPRESENTATIONS FOR DEPRESSION DETECTION{" "}
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title="View PDF"
+          >
+            <FaFilePdf style={{ color: 'red', verticalAlign: 'middle' }} />
+          </a>
+          <br />
+          <div style={{ marginTop: "10px" }}> 
+            <em>Authors: Mohd Mujtaba Akhtar*, <strong>Girish*</strong>, Orchid Chetia Phukan*, Swarup Ranjan Behera, Pailla Balakrishna Reddy, Arun Balaji Buduru, Rajesh Sharma</em>
           </div>
         </li>
         <br />
