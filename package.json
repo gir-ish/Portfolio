@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "version": "0.1.0",
-  "homepage": "https://gir-ish.github.io/about",
+  "homepage": "https://gir-ish.github.io/Portfolio",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
