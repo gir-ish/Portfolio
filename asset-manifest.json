@@ -1,18 +1,27 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.888b1eff.css",
-    "main.js": "/Portfolio/static/js/main.916105c1.js",
-    "static/js/453.acca0757.chunk.js": "/Portfolio/static/js/453.acca0757.chunk.js",
-    "static/media/audio-vault-enc-dec-application.drawio.png": "/Portfolio/static/media/audio-vault-enc-dec-application.drawio.e86d45c37ba7b7992a86.png",
-    "static/media/Girish_Resume.pdf": "/Portfolio/static/media/Girish_Resume.d3570d654e8b3e30303e.pdf",
-    "static/media/1.jpg": "/Portfolio/static/media/1.88479c9c10f52f472e5d.jpg",
+    "main.css": "/Portfolio/static/css/main.269d67a2.chunk.css",
+    "main.js": "/Portfolio/static/js/main.774e5b65.chunk.js",
+    "main.js.map": "/Portfolio/static/js/main.774e5b65.chunk.js.map",
+    "runtime-main.js": "/Portfolio/static/js/runtime-main.12aafef7.js",
+    "runtime-main.js.map": "/Portfolio/static/js/runtime-main.12aafef7.js.map",
+    "static/js/2.fbcd612a.chunk.js": "/Portfolio/static/js/2.fbcd612a.chunk.js",
+    "static/js/2.fbcd612a.chunk.js.map": "/Portfolio/static/js/2.fbcd612a.chunk.js.map",
+    "static/js/3.d0d19883.chunk.js": "/Portfolio/static/js/3.d0d19883.chunk.js",
+    "static/js/3.d0d19883.chunk.js.map": "/Portfolio/static/js/3.d0d19883.chunk.js.map",
     "index.html": "/Portfolio/index.html",
-    "main.888b1eff.css.map": "/Portfolio/static/css/main.888b1eff.css.map",
-    "main.916105c1.js.map": "/Portfolio/static/js/main.916105c1.js.map",
-    "453.acca0757.chunk.js.map": "/Portfolio/static/js/453.acca0757.chunk.js.map"
+    "precache-manifest.361c14ee280a0f390d75c7ef40b66ebf.js": "/Portfolio/precache-manifest.361c14ee280a0f390d75c7ef40b66ebf.js",
+    "service-worker.js": "/Portfolio/service-worker.js",
+    "static/css/main.269d67a2.chunk.css.map": "/Portfolio/static/css/main.269d67a2.chunk.css.map",
+    "static/js/2.fbcd612a.chunk.js.LICENSE.txt": "/Portfolio/static/js/2.fbcd612a.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/Portfolio/static/media/1.b06ee6e3.jpg",
+    "static/media/Girish_Resume.pdf": "/Portfolio/static/media/Girish_Resume.559e3803.pdf",
+    "static/media/audio-vault-enc-dec-application.drawio.png": "/Portfolio/static/media/audio-vault-enc-dec-application.drawio.f830d3cb.png"
   },
   "entrypoints": [
-    "static/css/main.888b1eff.css",
-    "static/js/main.916105c1.js"
+    "static/js/runtime-main.12aafef7.js",
+    "static/js/2.fbcd612a.chunk.js",
+    "static/css/main.269d67a2.chunk.css",
+    "static/js/main.774e5b65.chunk.js"
   ]
 }
