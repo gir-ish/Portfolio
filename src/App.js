@@ -17,7 +17,7 @@ function App() {
         <header className="header">
           <nav>
             <ul className="nav-links">
-              <li><Link to="/">About</Link></li>
+              <li><Link to="/about">About</Link></li>
               <li><Link to="/publication">Publication</Link></li>
               <li><Link to="/project">Project</Link></li>
               <li><Link to="/cv">CV</Link></li>
@@ -35,7 +35,7 @@ function App() {
 
         <main className="container">
           <Routes>
-            <Route path="/" element={<About />} />
+            <Route path="/about" element={<About />} />
             <Route path="/publication" element={<Publication />} />
             <Route path="/project" element={<Project />} />
             <Route path="/cv" element={<CV />} />
