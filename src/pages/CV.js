@@ -1,5 +1,5 @@
 import React from 'react';
-import cvPDF from '../assets/Girish_Resume.pdf'; // Update path as needed
+import cvPDF from '../assets/Girish_CV.pdf'; // Update path as needed
 
 function CV() {
   return (
