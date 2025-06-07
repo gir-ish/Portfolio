@@ -20,7 +20,7 @@ function App() {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/publication">Publication</Link></li>
               <li><Link to="/project">Project</Link></li>
-              <li><Link to="/cv">CV</Link></li>
+              {/* <li><Link to="/cv">CV</Link></li> */}
             </ul>
             <button className="theme-toggle" onClick={toggleTheme}>
               {darkMode ? (
@@ -38,7 +38,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/publication" element={<Publication />} />
             <Route path="/project" element={<Project />} />
-            <Route path="/cv" element={<CV />} />
+            {/* <Route path="/cv" element={<CV />} /> */}
           </Routes>
         </main>
       </Router>
