@@ -2,109 +2,49 @@ import React from 'react';
 import myPhoto from '../assets/1.jpg';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
+import { Stagger, Item, ParallaxIn, Magnetic } from '../components/Motion';
 
-function About() {
+export default function About() {
+  const pills = ['Deepfake Attribution','Emotion Recognition','Speech SSL & Codecs','Hyperbolic Fusion','Multimodal FM Synergy'];
+
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center', padding: '1rem' }}>
-      {/* Name */}
-      <h1>Girish .  </h1>
-      
-      {/* Intro & Photo */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: '2rem',
-          flexWrap: 'wrap',
-        }}
-      >
-        {/* Text */}
-        <div style={{ flex: '1 1 300px', textAlign: 'left', padding: '1rem' }}>
-          <p>
-            Greetings—I am Girish, currently in my final year of the Bachelor of Technology (Hons)
-            in Computer Science &amp; Engineering, specializing in Artificial Intelligence &amp;
-            Machine Learning at UPES. I anticipate graduating in June 2026.
+    <>
+      <section className="hero">
+        <div>
+          <div className="kicker">Research Associate · IIIT-Delhi</div>
+          <h1>Speech & Audio AI for Forensics and Affective Computing</h1>
+          <p className="sub">
+            I work at the intersection of <strong>paralinguistics</strong>, <strong>audio deepfake detection</strong>,
+            and <strong>multimodal emotion understanding</strong>. I explore non-Euclidean representations, codec-based
+            features, and foundation-model synergies for robust real-world speech intelligence.
           </p>
-          <p>
-            My present research focuses on advanced speech and audio technologies, including
-            emotion recognition, deepfake detection in audio streams, and the development of
-            novel audio language models.
-          </p>
-          <p>
-            Previously, I served as a Research Associate at IIIT Delhi and have collaborated with
-            organizations such as Reliance Jio, ARTVIEWINGS LLC, Suratec Co., Ltd., and Ulster
-            University.
-          </p>
-          <p>
-            I have contributed papers to premier conferences including Interspeech and ICASSP,
-            with several additional manuscripts currently under review.
-          </p>
-          <p>
-            Core competencies: Python, Java, C++, TensorFlow, PyTorch, audio signal processing,
-            NLP, and generative AI.
-          </p>
+          <Stagger>
+            {pills.map(p => (
+              <Item key={p}><span className="pill">{p}</span></Item>
+            ))}
+          </Stagger>
         </div>
+        <ParallaxIn>
+          <div className="center">
+            <img src={myPhoto} alt="Girish" className="avatar" />
+            <div style={{ marginTop: '0.8rem', display: 'flex', gap: '1.1rem', justifyContent: 'center' }}>
+              <Magnetic><a href="https://linkedin.com/in/girish-b794092a1/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin size={26} /></a></Magnetic>
+              <Magnetic><a href="https://github.com/gir-ish" target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub size={26} /></a></Magnetic>
+              <Magnetic><a href="https://scholar.google.com/citations?user=4HIGa7AAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Scholar"><SiGooglescholar size={26} /></a></Magnetic>
+              <Magnetic><a href="mailto:girish.research.pr@gmail.com" aria-label="Email"><FaEnvelope size={26} /></a></Magnetic>
+            </div>
+          </div>
+        </ParallaxIn>
+      </section>
 
-        {/* Photo */}
-        <div style={{ flex: '1 1 300px', textAlign: 'center', padding: '1rem' }}>
-          <img
-            src={myPhoto}
-            alt="Girish"
-            style={{ maxWidth: '50%', height: 'auto', borderRadius: '35%' }}
-          />
-        </div>
-      </div>
-
-      {/* Recent Updates */}
-      <h2>Recent Updates</h2>
-      <ul style={{ textAlign: 'left', maxWidth: '600px', margin: '0 auto' }}>
-        <li>Awaiting acceptance notifications for EUSIPCO 2025 and Interspeech 2025.</li>
-        <li>Submitted (or preparing submissions) to EMNLP 2025, ECAI 2025, and ASRU 2025.</li>
-        <li>Co-founding the Non-Euclidean Speech Lab, focusing on geometric approaches to audio analysis.</li>
-        <li>Launching Helix, a company building AI agents and their applications.</li>
-      </ul>
-
-      {/* Contact */}
-      <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-        <h2>Contact</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem' }}>
-          <a
-            href="https://linkedin.com/in/girish-b794092a1/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin style={{ fontSize: '2.5rem', color: '#0e76a8' }} />
-          </a>
-          <a
-            href="https://github.com/gir-ish"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <FaGithub style={{ fontSize: '2.5rem', color: '#333' }} />
-          </a>
-          <a
-            href="https://scholar.google.com/citations?user=4HIGa7AAAAAJ&hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Google Scholar"
-          >
-            <SiGooglescholar style={{ fontSize: '2.5rem', color: '#4285F4' }} />
-          </a>
-          <a
-            href="mailto:girish.research.pr@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-          >
-            <FaEnvelope style={{ fontSize: '2.5rem', color: 'red' }} />
-          </a>
-        </div>
-      </div>
-    </div>
+      <section>
+        <h2 className="section-title">Recent Updates</h2>
+        <Stagger>
+          <Item><div className="card"><h3>Conference Track</h3><p className="sub">Acceptances across INTERSPEECH/ICASSP/EUSIPCO; new work on codec-aided murmur classification & unlearning for paralinguistics.</p></div></Item>
+          <Item><div className="card"><h3>Lab & Collaboration</h3><p className="sub">Co-founding Non-Euclidean Speech Lab; collaborations with IIIT-Delhi, industry partners, and international groups.</p></div></Item>
+          <Item><div className="card"><h3>Building</h3><p className="sub">Helix: pragmatic AI agents + tooling; dataset curation for forensic-grade audio tasks.</p></div></Item>
+        </Stagger>
+      </section>
+    </>
   );
 }
-
-export default About;

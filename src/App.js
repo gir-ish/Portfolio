@@ -1,49 +1,67 @@
+// src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import About from './pages/About';
 import CV from './pages/CV';
 import Publication from './pages/Publication';
 import Project from './pages/Project';
 import './App.css';
+import { PageTransition, ScrollProgress } from './components/Motion';
+import { AnimatePresence } from 'framer-motion';
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
+function RoutesWithAnimation(){
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <PageTransition key={location.pathname}>
+        <Routes location={location}>
+          <Route path="/" element={<Navigate to="/about" replace />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/publication" element={<Publication />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/cv" element={<CV />} />
+        </Routes>
+      </PageTransition>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
+  const [darkMode, setDarkMode] = useState(true);
   const toggleTheme = () => setDarkMode(!darkMode);
 
   return (
-    <div className={darkMode ? "App dark" : "App light"}>
+    <div className={darkMode ? "App" : "App light"}>
       <Router>
+        <ScrollProgress />
         <header className="header">
-          <nav>
+          <nav className="nav">
+            <div className="brand">
+              <div className="mark">Girish</div>
+              <div className="role">Speech & Audio AI</div>
+            </div>
             <ul className="nav-links">
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/publication">Publication</Link></li>
-              <li><Link to="/project">Project</Link></li>
-              {/* <li><Link to="/cv">CV</Link></li> */}
+              <li><NavLink to="/about" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li>
+              <li><NavLink to="/publication" className={({isActive}) => isActive ? 'active' : ''}>Publications</NavLink></li>
+              <li><NavLink to="/project" className={({isActive}) => isActive ? 'active' : ''}>Projects</NavLink></li>
+              <li><NavLink to="/cv" className={({isActive}) => isActive ? 'active' : ''}>CV</NavLink></li>
             </ul>
-            <button className="theme-toggle" onClick={toggleTheme}>
-              {darkMode ? (
-                <FaSun style={{ color: 'yellow', fontSize: '1.5rem' }} />
-              ) : (
-                <FaMoon style={{ color: 'blue', fontSize: '1.5rem' }} />
-              )}
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+              {darkMode ? <FaSun /> : <FaMoon />}
             </button>
           </nav>
           <hr className="divider" />
         </header>
 
         <main className="container">
-          <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/publication" element={<Publication />} />
-            <Route path="/project" element={<Project />} />
-            {/* <Route path="/cv" element={<CV />} /> */}
-          </Routes>
+          <RoutesWithAnimation />
         </main>
+
+        <footer style={{padding:'2rem 1rem', color:'var(--muted)', textAlign:'center'}}>
+          © {new Date().getFullYear()} Girish — Research Associate, IIIT-Delhi
+        </footer>
       </Router>
     </div>
   );
 }
-
-export default App;
