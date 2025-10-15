@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.2a981856.css",
-    "main.js": "/Portfolio/static/js/main.84083405.js",
+    "main.css": "/Portfolio/static/css/main.857e0310.css",
+    "main.js": "/Portfolio/static/js/main.652f81ee.js",
     "static/js/453.ececc0a5.chunk.js": "/Portfolio/static/js/453.ececc0a5.chunk.js",
     "static/media/Girish_CV.pdf": "/Portfolio/static/media/Girish_CV.11ab3950a8ab7109cbe0.pdf",
     "static/media/1.jpg": "/Portfolio/static/media/1.88479c9c10f52f472e5d.jpg",
     "index.html": "/Portfolio/index.html",
-    "main.2a981856.css.map": "/Portfolio/static/css/main.2a981856.css.map",
-    "main.84083405.js.map": "/Portfolio/static/js/main.84083405.js.map",
+    "main.857e0310.css.map": "/Portfolio/static/css/main.857e0310.css.map",
+    "main.652f81ee.js.map": "/Portfolio/static/js/main.652f81ee.js.map",
     "453.ececc0a5.chunk.js.map": "/Portfolio/static/js/453.ececc0a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a981856.css",
-    "static/js/main.84083405.js"
+    "static/css/main.857e0310.css",
+    "static/js/main.652f81ee.js"
   ]
 }
