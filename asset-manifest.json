@@ -1,27 +1,17 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.680ec9db.chunk.css",
-    "main.js": "/Portfolio/static/js/main.c4b6dcf5.chunk.js",
-    "main.js.map": "/Portfolio/static/js/main.c4b6dcf5.chunk.js.map",
-    "runtime-main.js": "/Portfolio/static/js/runtime-main.12aafef7.js",
-    "runtime-main.js.map": "/Portfolio/static/js/runtime-main.12aafef7.js.map",
-    "static/js/2.fbcd612a.chunk.js": "/Portfolio/static/js/2.fbcd612a.chunk.js",
-    "static/js/2.fbcd612a.chunk.js.map": "/Portfolio/static/js/2.fbcd612a.chunk.js.map",
-    "static/js/3.d0d19883.chunk.js": "/Portfolio/static/js/3.d0d19883.chunk.js",
-    "static/js/3.d0d19883.chunk.js.map": "/Portfolio/static/js/3.d0d19883.chunk.js.map",
+    "main.css": "/Portfolio/static/css/main.8a725149.css",
+    "main.js": "/Portfolio/static/js/main.846256f7.js",
+    "static/js/453.ececc0a5.chunk.js": "/Portfolio/static/js/453.ececc0a5.chunk.js",
+    "static/media/Girish_CV.pdf": "/Portfolio/static/media/Girish_CV.11ab3950a8ab7109cbe0.pdf",
+    "static/media/1.jpg": "/Portfolio/static/media/1.88479c9c10f52f472e5d.jpg",
     "index.html": "/Portfolio/index.html",
-    "precache-manifest.c1c9c632f7d7ba8fb09339fa53855e33.js": "/Portfolio/precache-manifest.c1c9c632f7d7ba8fb09339fa53855e33.js",
-    "service-worker.js": "/Portfolio/service-worker.js",
-    "static/css/main.680ec9db.chunk.css.map": "/Portfolio/static/css/main.680ec9db.chunk.css.map",
-    "static/js/2.fbcd612a.chunk.js.LICENSE.txt": "/Portfolio/static/js/2.fbcd612a.chunk.js.LICENSE.txt",
-    "static/media/1.jpg": "/Portfolio/static/media/1.b06ee6e3.jpg",
-    "static/media/Girish_CV.pdf": "/Portfolio/static/media/Girish_CV.d1b6d688.pdf",
-    "static/media/audio-vault-enc-dec-application.drawio.png": "/Portfolio/static/media/audio-vault-enc-dec-application.drawio.f830d3cb.png"
+    "main.8a725149.css.map": "/Portfolio/static/css/main.8a725149.css.map",
+    "main.846256f7.js.map": "/Portfolio/static/js/main.846256f7.js.map",
+    "453.ececc0a5.chunk.js.map": "/Portfolio/static/js/453.ececc0a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.12aafef7.js",
-    "static/js/2.fbcd612a.chunk.js",
-    "static/css/main.680ec9db.chunk.css",
-    "static/js/main.c4b6dcf5.chunk.js"
+    "static/css/main.8a725149.css",
+    "static/js/main.846256f7.js"
   ]
 }
