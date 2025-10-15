@@ -1,6 +1,8 @@
 // src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import About from './pages/About';
 import CV from './pages/CV';
@@ -16,7 +18,7 @@ function RoutesWithAnimation(){
     <AnimatePresence mode="wait">
       <PageTransition key={location.pathname}>
         <Routes location={location}>
-          <Route path="/" element={<Navigate to="/about" replace />} />
+          <Route path="/" element={<About />} />
           <Route path="/about" element={<About />} />
           <Route path="/publication" element={<Publication />} />
           <Route path="/project" element={<Project />} />
@@ -42,10 +44,11 @@ export default function App() {
               <div className="role">Speech & Audio AI</div>
             </div>
             <ul className="nav-links">
-              <li><NavLink to="/about" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li>
+              <li><NavLink to="/" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li>
+              {/* <li><NavLink to="/about" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li> */}
               <li><NavLink to="/publication" className={({isActive}) => isActive ? 'active' : ''}>Publications</NavLink></li>
               <li><NavLink to="/project" className={({isActive}) => isActive ? 'active' : ''}>Projects</NavLink></li>
-              <li><NavLink to="/cv" className={({isActive}) => isActive ? 'active' : ''}>CV</NavLink></li>
+              {/* <li><NavLink to="/cv" className={({isActive}) => isActive ? 'active' : ''}>CV</NavLink></li> */}
             </ul>
             <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
               {darkMode ? <FaSun /> : <FaMoon />}
@@ -57,10 +60,10 @@ export default function App() {
         <main className="container">
           <RoutesWithAnimation />
         </main>
-
+{/* 
         <footer style={{padding:'2rem 1rem', color:'var(--muted)', textAlign:'center'}}>
           © {new Date().getFullYear()} Girish — Research Associate, IIIT-Delhi
-        </footer>
+        </footer> */}
       </Router>
     </div>
   );
