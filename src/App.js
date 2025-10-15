@@ -1,7 +1,5 @@
 // src/App.js
-import React, { useState } from 'react';
-// import { BrowserRouter as Router, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
-// import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { HashRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import About from './pages/About';
@@ -29,9 +27,27 @@ function RoutesWithAnimation(){
   );
 }
 
+/* Add/remove a 'scrolled' class on <body> to solidify the header after scrolling */
+function useBodyScrolledToggle(threshold = 8) {
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > threshold) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    };
+    onScroll(); // initial check
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [threshold]);
+}
+
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const toggleTheme = () => setDarkMode(!darkMode);
+
+  useBodyScrolledToggle(); // enables .scrolled .header styles
 
   return (
     <div className={darkMode ? "App" : "App light"}>
@@ -45,7 +61,6 @@ export default function App() {
             </div>
             <ul className="nav-links">
               <li><NavLink to="/" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li>
-              {/* <li><NavLink to="/about" className={({isActive}) => isActive ? 'active' : ''}>Home</NavLink></li> */}
               <li><NavLink to="/publication" className={({isActive}) => isActive ? 'active' : ''}>Publications</NavLink></li>
               <li><NavLink to="/project" className={({isActive}) => isActive ? 'active' : ''}>Projects</NavLink></li>
               {/* <li><NavLink to="/cv" className={({isActive}) => isActive ? 'active' : ''}>CV</NavLink></li> */}
@@ -57,13 +72,10 @@ export default function App() {
           <hr className="divider" />
         </header>
 
+        {/* Main inherits page background; sections are transparent */}
         <main className="container">
           <RoutesWithAnimation />
         </main>
-{/* 
-        <footer style={{padding:'2rem 1rem', color:'var(--muted)', textAlign:'center'}}>
-          © {new Date().getFullYear()} Girish — Research Associate, IIIT-Delhi
-        </footer> */}
       </Router>
     </div>
   );
