@@ -1,0 +1,20 @@
+/* src/index.css */
+/* Basic global reset – keep this small and neutral */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make sure main/footer behave as normal block elements */
+main,
+footer {
+  display: block;
+}

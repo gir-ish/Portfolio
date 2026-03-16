@@ -1,0 +1,371 @@
+/* ============================
+   Publications Page (clean)
+   ============================ */
+
+/* Page shell */
+.pubs-page {
+  padding: 36px 0 64px;
+  margin-top: 100px;
+}
+
+.pubs-page .wrap {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* ============================
+   Heading
+   ============================ */
+.pubs-page .pubs-heading {
+  margin: 0 0 68px;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 800;
+  color: #0e387a;
+  text-align: left;
+  margin-left: 100px;
+  position: relative;
+  padding-right: clamp(120px, 16vw, 320px);
+}
+
+.pubs-page .pubs-heading::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #ececec;
+  margin-top: 12px;
+}
+
+/* heading ghost year = 2026 */
+.pubs-page .pubs-heading::before {
+  content: "2026";
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(6px);
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 2.5;
+  margin-right: 80px;
+  color: #111;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ============================
+   List Layout
+   ============================ */
+.pubs-page .pubs-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* ============================
+   Row
+   ============================ */
+.pubs-page .pub-row {
+  display: block;
+  margin: 36px 0 46px;
+  text-align: left;
+}
+
+/* ============================
+   Title
+   ============================ */
+.pubs-page .pub-title {
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.15;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #111;
+  font-style: italic;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-width: 100%;
+  text-align: left;
+  padding: 0;
+  letter-spacing: -0.65px;
+}
+
+.pubs-page .pub-title::before {
+  content: "• ";
+  margin-right: 0.35rem;
+  font-weight: 700;
+  color: #111;
+}
+
+/* ============================
+   Authors
+   ============================ */
+.pubs-page .pub-authors {
+  margin: 6px 0 10px;
+  color: #374151;
+  line-height: 2.55;
+  font-size: 1rem;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 18px;
+}
+
+/* ============================
+   Chips Row
+   ============================ */
+.pubs-page .pub-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+/* Venue badge */
+.pubs-page .badge {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 6px 9px;
+  background: #e5e7eb;
+  color: #111;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+/* PDF chip */
+.pubs-page .btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 6px 11px;
+  border: 2px solid #111;
+  color: #111;
+  background: #fff;
+  border-radius: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.pubs-page .btn:hover,
+.pubs-page .btn:active {
+  background: #0e387a;
+  color: #fff;
+  border-color: #0e387a;
+}
+
+.pubs-page .btn:focus,
+.pubs-page .btn:focus-visible {
+  outline: none;
+  border-color: #0e387a;
+}
+
+/* ============================
+   Year break: 2025
+   starts before item 3
+   ============================ */
+.pubs-page .pubs-list > li:nth-child(3) {
+  position: relative;
+  margin-top: 56px;
+}
+
+.pubs-page .pubs-list > li:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  top: -28px;
+  height: 1px;
+  background: #ececec;
+}
+
+.pubs-page .pubs-list > li:nth-child(3)::after {
+  content: "2025";
+  position: absolute;
+  right: 64px;
+  top: -40px;
+  transform: translateY(6px);
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: #111;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ============================
+   Year break: 2024
+   starts before last item
+   ============================ */
+.pubs-page .pubs-list > li:last-child {
+  position: relative;
+  margin-top: 56px;
+}
+
+.pubs-page .pubs-list > li:last-child::before {
+  content: "";
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  top: -28px;
+  height: 1px;
+  background: #ececec;
+}
+
+.pubs-page .pubs-list > li:last-child::after {
+  content: "2024";
+  position: absolute;
+  right: 64px;
+  top: -40px;
+  transform: translateY(6px);
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: #111;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Highlight Girish */
+.pubs-page .author-accent {
+  color: #0e387a;
+  font-weight: 700;
+  text-decoration: underline dashed;
+  text-decoration-color: #0e387a;
+  text-underline-offset: 3px;
+}
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 1024px) {
+  .pubs-page {
+    padding: 36px 1.5rem 64px;
+    margin-top: 80px;
+  }
+
+  .pubs-page .wrap {
+    max-width: 100%;
+  }
+
+  .pubs-page .pubs-heading {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .pubs-page {
+    padding: 32px 1.25rem 56px;
+    margin-top: 70px;
+  }
+
+  .pubs-page .pubs-heading {
+    font-size: 1.5rem;
+    margin-bottom: 44px;
+    text-align: left;
+  }
+
+  .pubs-page .pub-row {
+    margin: 28px 0 36px;
+  }
+
+  .pubs-page .pub-authors {
+    margin-left: 0;
+    margin-top: 10px;
+    line-height: 1.8;
+  }
+
+  .pubs-page .pub-actions {
+    margin-left: 0;
+    gap: 8px;
+  }
+
+  .pubs-page .pubs-list > li:nth-child(3)::before,
+  .pubs-page .pubs-list > li:last-child::before {
+    left: 0;
+    right: 0;
+  }
+
+  .pubs-page .pubs-heading::before,
+  .pubs-page .pubs-list > li:nth-child(3)::after,
+  .pubs-page .pubs-list > li:last-child::after {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+    right: 0;
+    margin-right: 0;
+  }
+
+  .pubs-page .pubs-list > li:nth-child(3)::after,
+  .pubs-page .pubs-list > li:last-child::after {
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .pubs-page {
+    padding: 28px 1rem 48px;
+    margin-top: 64px;
+  }
+
+  .pubs-page .pubs-heading {
+    font-size: 1.35rem;
+  }
+
+  .pubs-page .pub-title {
+    font-size: 1rem;
+  }
+
+  .pubs-page .pub-authors {
+    font-size: 0.95rem;
+  }
+
+  .pubs-page .badge,
+  .pubs-page .btn {
+    font-size: 0.68rem;
+    padding: 5px 9px;
+  }
+
+  .pubs-page .pubs-heading::before,
+  .pubs-page .pubs-list > li:nth-child(3)::after,
+  .pubs-page .pubs-list > li:last-child::after {
+    display: none;
+  }
+}
+
+/* ============================
+   Dark mode
+   ============================ */
+body.dark-mode .pubs-page .pub-title {
+  color: #f9fafb;
+}
+
+body.dark-mode .pubs-page .pub-authors {
+  color: #e5e7eb;
+}
+
+body.dark-mode .pubs-page .author-accent {
+  color: #0e387a;
+}
+
+body.dark-mode .pubs-page .pubs-heading::before,
+body.dark-mode .pubs-page .pubs-list > li:nth-child(3)::after,
+body.dark-mode .pubs-page .pubs-list > li:last-child::after {
+  color: #f9fafb;
+  opacity: 0.1;
+}
+
+body.dark-mode .pubs-page .pub-title::before {
+  color: #f9fafb;
+}

@@ -1,0 +1,491 @@
+/* src/styles/updates.css */
+
+.updates {
+  border-top: 0;
+}
+
+.updates-title {
+  margin: 0 0 42px 0;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 700;
+  color: black;
+  opacity: 0.9;
+  line-height: 0;
+  margin-top: -60px;
+}
+
+.updates-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.card {
+  border: 1.5px solid #000; /* ← black outline */
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  background: var(--bg);
+  box-shadow: 0 6px 16px rgba(242, 238, 238, 0.06);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.card p strong {
+  color: #0e387a;
+}
+.site-footer,
+.updates-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32px;                    /* small footer bar */
+  padding: 0 1rem;                  /* no extra vertical padding */
+  font-weight: 700;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;                    /* sit above .site-footer */
+}
+
+
+
+/* ---- Selected publications ---- */
+
+.pubs-title {
+  margin: 68px 0 8px;
+  padding: 0 var(--header-xpad, 8vw);
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: black;
+  opacity: 0.8;
+  padding-left: var(--updates-left-pad) !important;
+  margin-top: 35px;
+}
+
+.pubs-title,
+.pub-list {
+  padding: 0 var(--header-xpad, 8vw);
+}
+
+.pub-list {
+  margin: 8px 0 24px;
+  list-style: disc;
+}
+
+.pub-item {
+  margin: 0 0 22px;
+}
+
+/* title & authors (initial) */
+.pub-title {
+  margin: 0 0 25px;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pub-authors {
+  margin: 0 0 12px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+.pub-authors a {
+  color: #0e387a;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.pub-badges {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  font: 700 0.9rem/1 ui-sans-serif, system-ui;
+  padding: 8px 10px;
+  background: #e5e7eb;
+  border-radius: 6px;
+}
+
+.btn {
+  font: 700 0.9rem/1 ui-sans-serif, system-ui;
+  padding: 8px 12px;
+  border: 1px solid #111827;
+  border-radius: 6px;
+  color: #111827;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #111827;
+  color: #fff;
+}
+
+/* layout with poster + body */
+
+.pubs-title,
+.pub-row {
+  padding: 0 var(--header-xpad, 8vw);
+}
+
+.pub-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.poster {
+  justify-self: start;
+  margin-left: -100px;
+  margin-top: 40px;
+}
+
+@media (max-width: 720px) {
+  .pub-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* poster box + ribbon */
+
+.poster {
+  position: relative;
+  width: 180px;
+  padding-top: 46px;
+  border: 1px solid #e5e7eb;
+  border-radius: 0px;
+  background: #fff;
+  overflow: hidden;
+  height: 175px;
+}
+
+.poster img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  clip-path: inset(0 0 0 2px);
+}
+
+.poster-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #0e387a;
+  color: #fff;
+
+  /* center text inside the band */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+/* pub item grid: poster + body */
+
+.pub-item {
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.pub-body {
+  display: grid;
+  gap: 0px;
+}
+
+/* title override for this layout */
+
+.pub-title {
+  margin: 0 0 8px;
+  font-weight: 650;
+  font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+  color: #111;
+  margin-top: 42px;
+  margin-left: -32px;
+  line-height: 25px;
+}
+
+/* authors override */
+
+.pub-authors {
+  margin: 0;
+  margin-left: -30px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+/* badges + chips */
+
+.pub-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-block;
+  font: 500 0.9rem/1 ui-sans-serif, system-ui;
+  padding: 6px 8px;
+  background: #e5e7eb;
+  border-radius: 0px;
+  color: #111;
+  white-space: nowrap;
+  margin-left: -30px;
+  height: 26px;
+}
+
+.chip {
+  display: inline-block;
+  font: 700 0.9rem/1 ui-sans-serif, system-ui;
+  padding: 5px 8px;
+  border: 2px solid #111;
+  border-radius: 0px;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* PDF / ABS buttons */
+
+.btn {
+  display: flex;
+  height: 26px;
+  font: 600 0.9rem/1 ui-sans-serif, system-ui;
+  padding: 6px 10px;
+  border: 2px solid #111;
+  border-radius: 0px;
+  color: black;
+  background: white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  background: #0e387a;
+  color: #fff;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(17, 17, 17, 0.4);
+  outline-offset: 2px;
+}
+
+.ribbon-eusipco {
+  background: #7b9ce2;
+}
+
+.author-accent {
+  color: #0e387a;
+  font-weight: 800;
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
+}
+
+/* ==== ABS toggle row + panel (no <details>) ==== */
+
+/* Row for ABS, PDF, ORAL, Venue */
+.pubs-block .pub-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-left: -28px;
+}
+
+/* Abstract panel below the row */
+.abs-panel {
+  margin-top: 14px;
+  padding: 18px 18px;
+  border: 2px dashed #d1d5db;
+  border-radius: 0;
+  background: white;
+  color: black;
+  line-height: 1.6;
+  text-align: justify;       /* make left + right edges align */
+  text-justify: inter-word;
+}
+
+/* ---- Fix venue badge overlap in actions row ---- */
+.pubs-block .pub-actions .badge {
+  margin-left: 0;          /* cancel the -30px from the base .badge */
+}
+
+/* ---- ORAL chip: same blue as ribbon ---- */
+.pubs-block .pub-actions .chip-oral {
+  background: #0e387a;     /* ribbon blue */
+  color: #ffffff;
+  border: 2px solid #0e387a;
+}
+
+/* "All News..." link */
+.updates-more {
+  color: #0e387a;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.updates-more:hover {
+  color: #0e387a;          /* optional hover color */
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .updates-title {
+    margin-top: -20px;
+    line-height: 1.2;
+  }
+
+  .card {
+    padding: 18px 18px;
+  }
+
+  .pub-row {
+    padding: 0 var(--header-xpad, 5vw);
+    gap: 22px;
+  }
+}
+
+/* Tablets & mobiles */
+@media (max-width: 768px) {
+  .updates-title {
+    margin-top: 0;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+
+  .updates-list {
+    gap: 24px;
+  }
+
+  .card {
+    padding: 16px 16px;
+  }
+
+  .pub-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .poster {
+    margin-left: 0;
+    margin-top: 0;
+    width: 160px;
+    height: auto;
+  }
+
+  .pub-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pub-title {
+    margin-left: 0;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .pub-authors {
+    margin-left: 0;
+  }
+
+  .badge {
+    margin-left: 0;
+  }
+
+  .pubs-block .pub-actions {
+    margin-left: 0;
+  }
+
+  .abs-panel {
+    padding: 14px 14px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .updates-title {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    padding: 14px 14px;
+  }
+
+  .poster {
+    width: 140px;
+  }
+
+  .pub-title {
+    font-size: 1rem;
+  }
+
+  .pub-authors {
+    font-size: 0.9rem;
+  }
+
+  .badge,
+  .btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    height: auto;
+  }
+}
+
+/* ===== DARK MODE: PUBLICATION CHIPS ===== */
+
+/* ABS / PDF chips → transparent */
+body.dark-mode .pubs-block .pub-actions .btn {
+  background: transparent;
+  color: #f9fafb;              /* light text on dark */
+  border-color: #f9fafb;       /* light outline */
+}
+
+/* Venue chip in actions row */
+body.dark-mode .pubs-block .pub-actions .badge {
+  background: #d4d4d4;
+  color: #111111;
+  border: none;
+}
+
+/* ==== DARK MODE FIXES: GIRISH + ABS CHIP ==== */
+
+/* 1. Girish in blue in both modes */
+.author-accent,
+body.dark-mode .author-accent {
+  color: #0e387a;
+}
+
+/* 2. ABS chip transparent in dark mode
+   -> give the ABS button className="btn btn-abs" */
+body.dark-mode .btn-abs {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}

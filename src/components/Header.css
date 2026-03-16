@@ -1,0 +1,347 @@
+/* ---------- BASE LAYOUT ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;         /* from earlier step */
+  gap: 20px;
+  min-height: var(--header-height, 64px);
+  padding: 10px var(--header-xpad, 2rem);
+  width: 100%;                         /* fill full width */
+  max-width: none;                     /* remove 1120px limit */
+  margin: 0;                           /* remove centering */
+  position: relative;
+}
+
+
+.icon-row {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* base icon button */
+.icon-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  transition: transform 0.16s ease, opacity 0.16s ease;
+}
+
+.icon-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* icon sizing via css */
+.icon-button svg {
+  width: 26px;
+  height: 26px;
+}
+
+@media (min-width: 1280px) {
+  .icon-button svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ---------- NAV LINKS (DESKTOP INLINE) ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav a,
+.nav-link {
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.nav-link {
+  color: #020617;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.nav-link:hover {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.nav-link.active {
+  color: #0b1120;
+  background: transparent;
+  border-bottom-color: #0e387a;  
+}
+
+/* ---------- THEME TOGGLE ---------- */
+.theme-toggle {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 4px 10px;
+  font-size: 1.6rem;
+  color: #020617;
+}
+
+.theme-toggle:hover {
+  border-color: #cbd5f5;
+}
+
+/* ---------- HAMBURGER BUTTON ---------- */
+.nav-toggle {
+  display: none; /* hidden on desktop */
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+/* animate hamburger -> X */
+.nav-toggle-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle-open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---------- DARK MODE ---------- */
+body.dark-mode .site-header {
+  background: #020617;
+  border-bottom: 1px solid #111827;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .divider {
+  background: #111827;
+}
+
+body.dark-mode .icon-row svg {
+  color: #f9fafb;
+}
+
+body.dark-mode .theme-toggle {
+  color: #f9fafb;
+  border-color: #1f2937;
+}
+
+body.dark-mode .theme-toggle:hover {
+  border-color: #4b5563;
+}
+
+body.dark-mode .nav-toggle span {
+  background: #e5e7eb;
+}
+
+/* dark mode: no capsule, only underline */
+body.dark-mode .nav-link {
+  color: #e5e7eb;
+  background: transparent;
+  border-bottom: 2px solid transparent;  /* same trick as light mode */
+}
+
+body.dark-mode .nav-link:hover {
+  background: transparent;               /* no pill on hover */
+  border-bottom-color: rgba(248, 250, 252, 0.5); /* soft light underline */
+}
+
+body.dark-mode .nav-link.active {
+  color: #ffffff;
+  background: transparent;               /* no capsule */
+  border-bottom-color: #ffffff;          /* solid white underline for active tab */
+}
+
+
+/* ================== RESPONSIVE: TABLET & PHONE ================== */
+
+/* tablets & small laptops */
+@media (max-width: 1024px) {
+  .bar {
+    padding: 8px 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
+    padding: 5px 10px;
+  }
+}
+
+/* phones / small tablets */
+@media (max-width: 768px) {
+  .bar {
+    padding: 8px 1rem;
+    gap: 12px;
+    justify-content: space-between; 
+  }
+
+  .icon-row {
+    gap: 14px;
+  }
+
+  .right-controls {
+    margin-left: auto;                 /* NEW: push moon + hamburger to far right */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* show hamburger on mobile */
+  .nav-toggle {
+    display: inline-flex;
+      order: 1;  
+  }
+
+  .theme-toggle {
+    order: 2;                          /* NEW: moon to the RIGHT of hamburger */
+  }
+
+  /* nav becomes DROPDOWN; hidden by default */
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    margin-left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem 0.75rem;
+    gap: 4px;
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+    z-index: 999;
+  }
+
+  .nav.nav-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 6px 0.75rem;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+  body.dark-mode .nav {
+    border-top: 1px solid #111827;
+    background: #020617;
+  }
+    .profile-photo-wrapper {
+    display: flex;
+    justify-content: center;   /* center horizontally */
+  }
+
+  /* if the image itself is directly targeted */
+  .profile-photo-wrapper img {
+    display: block;
+    margin: 0 auto;           /* also centers if it’s not in flex */
+  }
+
+}
+
+/* very small phones */
+@media (max-width: 480px) {
+  .bar {
+    padding: 6px 0.75rem;
+  }
+
+  .icon-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 5px 0.7rem;
+  }
+
+  .theme-toggle {
+    padding: 3px 8px;
+    font-size: 0.95rem;
+  }
+}
+
+/* --- 1. Layout: icons hard left, nav pushed to the right --- */
+.bar {
+  justify-content: flex-start;   /* stop centering / spreading all three blocks */
+}
+
+.icon-row {
+  margin-right: 24px;            /* little gap between social icons and nav */
+}
+
+.nav {
+  margin-left: auto;             /* push nav (and theme icon) toward the right side */
+  justify-content: flex-end;     /* nav links hug the right */
+}
+
+/* light mode social icons */
+.icon-row svg {
+  color: #000;
+  fill: #000;
+}
+
+/* dark mode social icons */
+body.dark-mode .icon-row svg {
+  color: #ffffff;
+  fill: #ffffff;
+}
+

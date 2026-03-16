@@ -1,0 +1,173 @@
+/* src/styles/intro.css */
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);       /* fixed: square avatar */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid var(--bg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  position: relative;
+  margin-top: -90px;                /* pull upward; tweak -80 ~ -140 on desktop */
+  z-index: 1;
+  margin-left: -60px;
+}
+
+.intro-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.intro-name {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  margin-top: -75px;                /* tweak: -8px … -28px */
+  line-height: 1.1;
+}
+
+.intro-badge {
+  display: inline-block;
+  align-self: flex-start;
+  color: #0e387a;
+  background: linear-gradient(90deg, #e0f2ff, #eef4ff);
+  font-family: ui-monospace, monospace;
+  font-size: 18px;                  /* was inherited; try 0.9–1.0rem */
+  padding: 5px 8px;                 /* was 10px 14px */
+  line-height: 1.1;                 /* tighter vertical rhythm */
+  border-width: 1px;                /* keep the outline thin */
+  border-radius: 0px;
+}
+
+.intro-tagline {
+  max-width: 22ch;
+  margin: 0 0 5px;
+  font-weight: 350;
+  font-size: clamp(1.1rem, 3.1vw, 2.1rem);
+  background: linear-gradient(90deg, rgba(108, 43, 43, 0.574));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #7A753F;
+}
+
+.intro-desc {
+  color: black;
+  max-width: 500ch;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.intro-desc .hi {
+  color: #0e387a;
+  font-weight: 900;
+}
+
+.section {
+  margin-top: 50px;
+}
+
+.interests {
+  margin-top: 10px;
+  grid-column: 2;
+  align-self: start;
+  padding-left: 0;
+}
+
+.interests-title {
+  margin: 0 0 40px;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  color: black;
+  opacity: 0.9;
+  line-height: 1px;
+}
+
+.interests-list {
+  margin: 10;
+  padding-left: 1.2em;   /* bullets like your screenshot */
+  list-style: disc;
+  display: grid;
+  gap: 5px;
+  color: var(--muted, #6b7280);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* =============== RESPONSIVE INTRO SECTION =============== */
+
+/* Tablets & mobile */
+@media (max-width: 900px) {
+  .avatar {
+    margin-top: -75px;              /* no negative overlap on small screens */
+    margin-left: 0;
+    position: static;           /* let it flow normally */
+    width: min(var(--avatar-size), 160px);
+    height: min(var(--avatar-size), 160px);
+    margin-bottom: 12px;
+    /* NEW: center avatar */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;          /* or shorthand: margin: 0 auto 12px; */
+  }
+
+  .intro-col {
+    align-items: center;        /* center text under avatar */
+    text-align: center;
+    gap: 8px;
+  }
+
+  .intro-name {
+    margin-top: 0;
+  }
+
+  .intro-badge {
+    align-self: center;         /* center badge instead of left */
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  .intro-tagline {
+    max-width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .intro-desc {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .interests {
+    grid-column: 1 / -1;        /* don’t force 2nd column on narrow screens */
+    align-self: stretch;
+    margin-top: 24px;
+    padding-left: 0;
+  }
+
+  .interests-title {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .interests-list {
+    padding-left: 1.25rem;      /* keep bullets */
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .intro-name {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+  }
+
+  .intro-tagline {
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
+  }
+
+  .intro-desc,
+  .interests-list {
+    font-size: 0.9rem;
+  }
+}

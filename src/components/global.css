@@ -1,0 +1,269 @@
+/* src/styles/global.css */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  padding-top: var(--header-height); /* fixed header offset */
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code {
+  background: var(--code-bg);
+  color: #e5e7eb;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+}
+
+/* Page container + grid: left = avatar column, right = content */
+.page {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-6) var(--header-xpad);
+}
+
+/* Two-column layout that avoids padding math everywhere */
+.page-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, var(--avatar-size)) 1fr;
+  gap: var(--intro-gap);
+  align-items: start;
+}
+
+/* section divider rhythm */
+.section { padding: var(--space-8) 0; }
+
+/* ✅ NEW: make images & videos scale on smaller screens */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+.site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  color: #111111;
+  border-top: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+/* make the .page inside the footer small and centered */
+.site-footer .page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.35rem 1rem;      /* small vertical padding instead of 3rem+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* style the text itself */
+.footer-text {
+  margin: 0;
+  text-align: center;
+  font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+
+
+/* keep content from hiding behind the fixed footer */
+body { padding-bottom: 44px; }
+
+/* optional: link color inside footer */
+.site-footer a { color: #111111; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+
+/* LIGHT MODE – keep your normal colours here */
+body {
+  background-color: #f5f5f5;   /* whatever you use for light background */
+  color: #111111;
+}
+
+/* ================== DARK MODE ================== */
+body.dark-mode {
+  background-color: #111827;   /* dark grey/navy like in your screenshot */
+  color: #f9fafb;              /* main text colour */
+}
+
+/* headings */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+/* paragraphs + list items */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span {
+  color: #e5e5e5;
+}
+
+/* links on dark – soft blue */
+body.dark-mode a {
+  color: #93c5fd;
+}
+
+/* if you have cards/boxes, make them dark too */
+body.dark-mode .card,
+body.dark-mode .section,
+body.dark-mode .box {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+
+/* DARK MODE FOOTER */
+body.dark-mode footer,
+body.dark-mode .site-footer {
+  background-color: #111827;   /* same dark as header/page */
+  color: #e5e7eb;
+  border-top: 1px solid #1f2937;
+}
+
+/* links inside footer on dark */
+body.dark-mode footer a,
+body.dark-mode .site-footer a {
+  color: #9ca3af;
+}
+
+/* ===== DARK MODE: USE DARK GREY INSTEAD OF NAVY ===== */
+body.dark-mode {
+  background-color: #18181b;   /* dark grey */
+  color: #f5f5f5;
+}
+
+/* header + footer also dark grey */
+body.dark-mode .site-header,
+body.dark-mode .bar,
+body.dark-mode .site-footer {
+  background-color: #18181b;
+  border-color: #27272a;
+}
+
+/* common sections/cards on dark grey */
+body.dark-mode .card,
+body.dark-mode .section,
+body.dark-mode .news-card,
+body.dark-mode .project-card {
+  background-color: #18181b;
+  border-color: #27272a;
+}
+
+.container {
+  width: 100%;
+  /* ✅ works on all screens */
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: 60vh; /* or remove height */
+  padding: 2rem 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.card {
+  flex: 1 1 280px;   /* grows & shrinks */
+}
+
+/* ✅ MOBILE breakpoint – stack page grid + cards */
+@media (max-width: 768px) {
+  .page {
+    /* tighter padding on small screens */
+    padding: var(--space-5) 1.25rem 3.5rem;
+  }
+
+  .page-grid {
+    grid-template-columns: 1fr;   /* avatar and content one below the other */
+    gap: var(--space-6);
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+/* Tablet and smaller (extra tweaks) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ✅ Small phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  /* slightly less horizontal padding on very small screens */
+  .page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32px;
+  background: #ffffff;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  border-top: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+/* keep this so content doesn't hide behind footer */
+body {
+  padding-bottom: 44px;
+}
+
+

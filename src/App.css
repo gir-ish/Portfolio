@@ -1,0 +1,170 @@
+/* src/App.css */
+
+/* ========== APP SHELL ========== */
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* basic typography for main if you use it */
+main h1 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 2.25rem;
+}
+
+main p {
+  margin: 0.25rem 0;
+  opacity: 0.9;
+}
+
+code {
+  background: #1e293b;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+}
+
+/* keep page inner background white (matches your design) */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+  color: #0f172a;
+  background: #ffffff; /* page stays white under the white header */
+}
+
+.section {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: #8b1d1d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========== HERO BANNER ========== */
+
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: 18vh;             /* banner height; adjust if needed */
+  object-fit: cover;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ========== PROFILE + INTRO WRAPPER ========== */
+
+/* container under banner */
+.profile-wrap {
+  background: #fff;
+}
+
+/* LEFT column (avatar) – actual avatar styles live in intro.css (.avatar) */
+.profile {
+  background: #fff;
+  padding: 28px var(--header-xpad, 8vw) 8px; /* same side padding as header */
+}
+
+/* intro block (right side in desktop) */
+.intro {
+  background: #fff;
+  padding: 24px 0 8px;
+}
+
+/* row: avatar on left, text on right for desktop */
+.intro-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 0 var(--header-xpad, 8vw); /* aligns with header */
+  flex-wrap: wrap;                    /* allow wrapping if needed */
+}
+
+/* right-hand column for text; typography handled in intro.css */
+.intro-text {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 40px;                  /* spacing between avatar and text on desktop */
+}
+
+/* ========== RESPONSIVE LAYOUT ========== */
+
+/* tablets & small laptops */
+@media (max-width: 1024px) {
+  .app {
+    padding: 1.75rem 1.25rem 2.5rem;
+  }
+
+  .page {
+    padding: 1.25rem 1.25rem 2.5rem;
+  }
+
+  .intro-text {
+    margin-top: 24px;
+  }
+}
+
+/* tablets & mobile phones */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.5rem 1rem 2.25rem;
+  }
+
+  .hero img {
+    height: 16vh;            /* a bit shorter on small screens */
+  }
+
+  .intro-row {
+    flex-direction: column;  /* stack avatar above text */
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px var(--header-xpad, 8vw) 12px;
+  }
+
+  .intro-text {
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+/* very small phones */
+@media (max-width: 480px) {
+  .app {
+    padding: 1.25rem 0.9rem 2rem;
+  }
+
+  .page {
+    padding: 1rem 0.9rem 2rem;
+  }
+
+  .hero img {
+    height: 14vh;
+  }
+}

@@ -1,0 +1,162 @@
+/* src/pages/Project.css */
+
+.projects-page {
+  min-height: 100vh;
+  padding: 4rem 1.5rem 5rem;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;          /* ⬅️ White background around the cards */
+  color: #020617;               /* Dark text by default for the page */
+}
+
+.projects-container {
+  width: min(920px, 100%);      /* ✅ use full width on smaller screens */
+}
+
+/* Heading */
+.projects-heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 2.5rem;
+  margin-top: 60px;
+  margin-left: -35px;           /* desktop offset */
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12); /* subtle dark divider */
+  padding-bottom: 0.75rem;
+  color: #0e387a;               /* ⬅️ Your requested heading color */
+}
+
+/* List layout */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+  margin-top: 30px;
+}
+
+/* Individual card */
+.project-card {
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  border-radius: 18px;
+  padding: 1.50rem 1.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  color: #e5e7eb;               /* ⬅️ Make card text light on dark card */
+  transition:
+    transform 150ms ease-out,
+    box-shadow 150ms ease-out,
+    border-color 150ms ease-out,
+    background 150ms ease-out;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
+  border-color: rgba(129, 140, 248, 0.9);
+  background: radial-gradient(circle at top left, #111827, #020617);
+}
+
+/* Title + GitHub link */
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.project-github-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  width: fit-content;
+  text-decoration: none;
+  color: #a5b4fc; /* indigo */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(129, 140, 248, 0.55);
+  transition:
+    background 140ms ease,
+    border 140ms ease,
+    transform 140ms ease;
+}
+
+.project-github-link:hover {
+  background: rgba(79, 70, 229, 0.18);
+  border-color: rgba(165, 180, 252, 1);
+  transform: translateY(-1px);
+}
+
+/* Description text */
+.project-description {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  color: #e5e7eb;
+}
+
+/* ========== RESPONSIVE PROJECTS LAYOUT ========== */
+
+/* Tablets & mobile */
+@media (max-width: 768px) {
+  .projects-page {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .projects-container {
+    width: 100%;               /* full width on small screens */
+  }
+
+  .projects-heading {
+    font-size: 2rem;
+    margin-left: 0;            /* ✅ remove negative shift on small screens */
+    margin-top: 3.5rem;
+  }
+
+  .projects-list {
+    gap: 2.5rem;
+  }
+
+  .project-card {
+    padding: 1.4rem 1.4rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .projects-page {
+    padding: 2.5rem 0.9rem 3.5rem;
+  }
+
+  .projects-heading {
+    font-size: 1.8rem;
+  }
+
+  .project-card {
+    padding: 1.25rem 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== DARK MODE: projects page background only ===== */
+body.dark-mode .projects-page {
+  background: #18181b;  /* same dark grey as header/footer */
+}

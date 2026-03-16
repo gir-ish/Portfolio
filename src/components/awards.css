@@ -1,0 +1,204 @@
+/* src/components/awards.css */
+
+.awards-section {
+  padding: 7.5rem 0;
+  background-color: #ffffff;
+}
+
+.awards-inner {
+  max-width: 1200px;
+  margin: 0 70px;
+  padding: 0 1.5rem;
+}
+
+/* Heading */
+
+.awards-title {
+  font-size: 2.0rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem 0;
+  color: #0e387a;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  margin-left: -15px; /* desktop nudge */
+}
+
+.awards-subtitle {
+  margin: 0 0 3rem 0;
+  font-size: 0.85rem;
+  color: #666666;
+  line-height: 10px;
+}
+
+/* List */
+
+.awards-list {
+  margin: 0;
+  padding: 0 0.05rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.award-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-left: 1.2rem;
+  letter-spacing: 0.30px;
+}
+
+/* custom bullet */
+.award-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -0.65rem;
+  font-size: 1.8rem;
+  color: #222222;
+}
+
+.award-text {
+  flex: 1 1 60%;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #222222;
+}
+
+.award-emphasis {
+  font-weight: 500;
+}
+
+.award-icon {
+  font-size: 0.95rem;
+}
+
+/* Tag chips */
+
+.award-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-start;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 0px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.tag--gold {
+  background-color: #cdcdcd;
+  color: #4d3b00;
+  font-size: 0.65rem;
+}
+
+.tag--maroon {
+  background-color: #0e387a;
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+  .awards-section {
+    padding: 5.5rem 0;
+  }
+
+  .awards-inner {
+    margin: 0 32px;
+    padding: 0 1.25rem;
+  }
+
+  .awards-title {
+    margin-left: 0;      /* remove negative nudge on smaller screens */
+  }
+}
+
+/* Tablets & mobiles */
+@media (max-width: 768px) {
+  .awards-section {
+    padding: 4rem 0;
+  }
+
+  .awards-inner {
+    margin: 0 16px;
+    padding: 0 1rem;
+  }
+
+  .awards-title {
+    font-size: 1.6rem;
+    text-align: left;
+  }
+
+  .awards-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .award-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .award-tags {
+    margin-top: 0.4rem;
+    margin-left: 1.2rem; /* lines up with text after the bullet */
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .awards-inner {
+    margin: 0 10px;
+    padding: 0 0.75rem;
+  }
+
+  .awards-title {
+    font-size: 1.4rem;
+  }
+
+  .award-text {
+    font-size: 0.95rem;
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.55rem;
+  }
+}
+
+/* ===== DARK MODE: awards page ===== */
+body.dark-mode .awards-section {
+  background-color: #18181b;          /* dark grey page bg */
+}
+
+/* make all main text light */
+body.dark-mode .awards-title {
+  color: #f9fafb;                     /* white heading */
+}
+
+body.dark-mode .awards-subtitle,
+body.dark-mode .award-text {
+  color: #e5e7eb;                     /* light grey body text */
+}
+
+/* bullet dot */
+body.dark-mode .award-item::before {
+  color: #f9fafb;                     /* visible bullet */
+}
+
+/* date chips text */
+body.dark-mode .tag--gold {
+  color: #000000;   /* black text on grey chip */
+}
