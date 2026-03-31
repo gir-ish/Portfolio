@@ -4,15 +4,31 @@
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React + Vite</title>
-    <script type="module" crossorigin src="/Portfolio/assets/index-CV-GC9Sm.js"></script>
-    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-BSM5v83X.css">
+    <title>Girish | Research Portfolio</title>
+    <!-- SPA redirect decoder: restores route after 404.html bounce -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            l.pathname.slice(0, -1) + decoded[0] +
+            (decoded[1] ? '?' + decoded[1] : '') +
+            l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <script type="module" crossorigin src="/Portfolio/assets/index-EdZpe5Nb.js"></script>
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-DLAdovfh.css">
   </head>
   
 
   
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
 
     
   </body>

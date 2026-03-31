@@ -2,7 +2,21 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      // Dev-only: redirect /Portfolio → /Portfolio/ so refresh always works
+      name: "base-trailing-slash",
+      configureServer(server) {
+        server.middlewares.use((req, _res, next) => {
+          if (req.url === "/Portfolio") {
+            req.url = "/Portfolio/";
+          }
+          next();
+        });
+      },
+    },
+  ],
   base: "/Portfolio/",
   build: {
     outDir: "docs",

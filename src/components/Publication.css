@@ -17,7 +17,7 @@
    Heading
    ============================ */
 .pubs-page .pubs-heading {
-  margin: 0 0 68px;
+  margin: 0 0 20px;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   font-weight: 800;
   color: #0e387a;
@@ -27,30 +27,106 @@
   padding-right: clamp(120px, 16vw, 320px);
 }
 
-.pubs-page .pubs-heading::after {
-  content: "";
-  display: block;
-  height: 1px;
-  background: #ececec;
-  margin-top: 12px;
+/* heading underline removed — year separators provide visual dividers */
+
+/* heading ghost year removed — year is now shown by dynamic year separators */
+
+/* ============================
+   Search + Filter Controls
+   ============================ */
+.pubs-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 40px;
+  margin-left: 100px;
 }
 
-/* heading ghost year = 2026 */
-.pubs-page .pubs-heading::before {
-  content: "2026";
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: translateY(6px);
-  font-size: clamp(2.2rem, 5vw, 5rem);
-  font-weight: 900;
-  line-height: 2.5;
-  margin-right: 80px;
+.pubs-search {
+  width: 100%;
+  max-width: 480px;
+  padding: 10px 16px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  outline: none;
+  background: #fff;
   color: #111;
-  opacity: 0.06;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pubs-search:focus {
+  border-color: #0e387a;
+  box-shadow: 0 0 0 3px rgba(14, 56, 122, 0.12);
+}
+
+.pubs-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-chip {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  border-color: #0e387a;
+  color: #0e387a;
+}
+
+.filter-chip--active {
+  background: #0e387a;
+  border-color: #0e387a;
+  color: #fff;
+}
+
+.pubs-empty {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+  padding: 48px 0;
+}
+
+/* Dark mode controls */
+body.dark-mode .pubs-search {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f9fafb;
+}
+
+body.dark-mode .pubs-search:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+body.dark-mode .filter-chip {
+  background: #1e293b;
+  border-color: #334155;
+  color: #9ca3af;
+}
+
+body.dark-mode .filter-chip:hover {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+body.dark-mode .filter-chip--active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .pubs-controls { margin-left: 0; }
 }
 
 /* ============================
@@ -170,73 +246,46 @@
 }
 
 /* ============================
-   Year break: 2025
-   starts before item 3
+   Dynamic Year Separator
+   Line + ghost year on same row
    ============================ */
-.pubs-page .pubs-list > li:nth-child(3) {
-  position: relative;
-  margin-top: 56px;
+.pubs-page .pubs-year-sep {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 52px 0 0;
 }
 
-.pubs-page .pubs-list > li:nth-child(3)::before {
+/* The horizontal line grows to fill remaining width */
+.pubs-page .pubs-year-sep::before {
   content: "";
-  position: absolute;
-  left: 64px;
-  right: 64px;
-  top: -28px;
+  flex: 1;
   height: 1px;
   background: #ececec;
 }
 
-.pubs-page .pubs-list > li:nth-child(3)::after {
-  content: "2025";
-  position: absolute;
-  right: 64px;
-  top: -40px;
-  transform: translateY(6px);
+/* First year (2026): no line — just the ghost year right-aligned */
+.pubs-page .pubs-year-sep--first {
+  margin-top: 0;
+  justify-content: flex-end;
+}
+
+.pubs-page .pubs-year-sep--first::before {
+  display: none;
+}
+
+/* Ghost year label */
+.pubs-page .year-sep-label {
   font-size: clamp(2.2rem, 5vw, 5rem);
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1;
   color: #111;
   opacity: 0.06;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
-}
-
-/* ============================
-   Year break: 2024
-   starts before last item
-   ============================ */
-.pubs-page .pubs-list > li:last-child {
-  position: relative;
-  margin-top: 56px;
-}
-
-.pubs-page .pubs-list > li:last-child::before {
-  content: "";
-  position: absolute;
-  left: 64px;
-  right: 64px;
-  top: -28px;
-  height: 1px;
-  background: #ececec;
-}
-
-.pubs-page .pubs-list > li:last-child::after {
-  content: "2024";
-  position: absolute;
-  right: 64px;
-  top: -40px;
-  transform: translateY(6px);
-  font-size: clamp(2.2rem, 5vw, 5rem);
-  font-weight: 900;
-  line-height: 1.25;
-  color: #111;
-  opacity: 0.06;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
+  padding-right: 64px;
 }
 
 /* Highlight Girish */
@@ -337,9 +386,7 @@
     padding: 5px 9px;
   }
 
-  .pubs-page .pubs-heading::before,
-  .pubs-page .pubs-list > li:nth-child(3)::after,
-  .pubs-page .pubs-list > li:last-child::after {
+  .pubs-page .year-sep-label {
     display: none;
   }
 }
@@ -359,11 +406,13 @@ body.dark-mode .pubs-page .author-accent {
   color: #0e387a;
 }
 
-body.dark-mode .pubs-page .pubs-heading::before,
-body.dark-mode .pubs-page .pubs-list > li:nth-child(3)::after,
-body.dark-mode .pubs-page .pubs-list > li:last-child::after {
+body.dark-mode .pubs-page .year-sep-label {
   color: #f9fafb;
   opacity: 0.1;
+}
+
+body.dark-mode .pubs-page .pubs-year-sep::before {
+  background: #374151;
 }
 
 body.dark-mode .pubs-page .pub-title::before {

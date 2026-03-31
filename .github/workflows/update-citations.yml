@@ -1,0 +1,38 @@
+name: Update Citations
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install scholarly
+        run: pip install scholarly
+
+      - name: Fetch citations
+        run: python scripts/fetch_citations.py
+
+      - name: Copy to docs/
+        run: cp public/citations.json docs/citations.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/citations.json docs/citations.json
+          git diff --cached --quiet || git commit -m "chore: update citation count [skip ci]"
+          git push

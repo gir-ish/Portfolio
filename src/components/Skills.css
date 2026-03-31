@@ -1,0 +1,116 @@
+@keyframes groupFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tagPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.skills-page {
+  padding: 80px 8vw 80px;
+}
+
+.skills-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #0e387a;
+  margin: 0 0 8px;
+}
+
+.skills-sub {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0 0 48px;
+}
+
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skill-group {
+  animation: groupFadeUp 0.5s ease calc(var(--g, 0) * 0.1s) both;
+}
+
+.skill-group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid #0e387a;
+  padding-left: 14px;
+  margin-bottom: 16px;
+}
+
+.skill-group-icon {
+  font-size: 1.4rem;
+}
+
+.skill-group-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 18px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--tag-color, #0e387a);
+  background: var(--tag-bg, #e0f2ff);
+  border: 1.5px solid color-mix(in srgb, var(--tag-color, #0e387a) 25%, transparent);
+  cursor: default;
+  animation: tagPop 0.35s ease calc(var(--gi, 0) * 0.1s + var(--si, 0) * 0.04s) both;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--tag-color, #0e387a) 20%, transparent);
+}
+
+/* Dark mode */
+body.dark-mode .skills-heading {
+  color: #93c5fd;
+}
+
+body.dark-mode .skills-sub {
+  color: #9ca3af;
+}
+
+body.dark-mode .skill-tag {
+  background: color-mix(in srgb, var(--tag-color, #0e387a) 15%, #1e293b);
+  border-color: color-mix(in srgb, var(--tag-color, #0e387a) 35%, transparent);
+  color: color-mix(in srgb, var(--tag-color, #0e387a) 70%, #ffffff);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-page {
+    padding: 60px 1.25rem 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-tag {
+    font-size: 0.82rem;
+    padding: 5px 12px;
+  }
+}

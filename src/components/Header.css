@@ -1,3 +1,47 @@
+/* ── Scroll progress bar ── */
+.scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0e387a, #7c3aed, #7A753F);
+  transition: width 0.1s linear;
+  z-index: 10;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── CV download button ── */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff !important;
+  background: #0e387a;
+  border: 1.5px solid #0e387a;
+  text-decoration: none !important;
+  transition: background 0.18s ease, transform 0.18s ease;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.cv-download-btn:hover {
+  background: #0b2d60;
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+body.dark-mode .cv-download-btn {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+body.dark-mode .cv-download-btn:hover {
+  background: #1e40af;
+}
+
 /* ---------- BASE LAYOUT ---------- */
 .site-header {
   position: fixed;

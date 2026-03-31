@@ -9,13 +9,11 @@ import { MdEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
-  // Dark mode state (stored in localStorage)
   const [dark, setDark] = useState(
     () => localStorage.getItem("darkMode") === "true"
   );
-
-  // Mobile menu state
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     if (dark) {
@@ -26,25 +24,32 @@ export default function Header() {
     localStorage.setItem("darkMode", dark);
   }, [dark]);
 
-  const handleNavClick = () => {
-    setMenuOpen(false);
-  };
+  useEffect(() => {
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNavClick = () => setMenuOpen(false);
 
   return (
     <header className="site-header" role="banner">
+      {/* Scroll progress bar */}
+      <div
+        className="scroll-progress-bar"
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
       <div className="bar">
-        {/* ===== LEFT: SOCIAL ICONS (ALWAYS VISIBLE) ===== */}
+        {/* LEFT: SOCIAL ICONS */}
         <div className="icon-row">
-          {/* Email */}
-          <a
-            href="mailto:girish.research.pr@gmail.com"
-            className="icon-button"
-            aria-label="Email"
-          >
+          <a href="mailto:girish.research.pr@gmail.com" className="icon-button" aria-label="Email">
             <MdEmail />
           </a>
-
-          {/* Google Scholar */}
           <a
             href="https://scholar.google.com/citations?user=4HIGa7AAAAAJ&hl=en"
             className="icon-button"
@@ -54,8 +59,6 @@ export default function Header() {
           >
             <SiGooglescholar />
           </a>
-
-          {/* GitHub */}
           <a
             href="https://github.com/gir-ish"
             className="icon-button"
@@ -65,8 +68,6 @@ export default function Header() {
           >
             <FaSquareGithub />
           </a>
-
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/in/girish-b794092a1"
             className="icon-button"
@@ -78,66 +79,32 @@ export default function Header() {
           </a>
         </div>
 
-        {/* ===== CENTER/RIGHT: NAV (DESKTOP INLINE, MOBILE DROPDOWN) ===== */}
+        {/* CENTER/RIGHT: NAV */}
         <nav
           id="main-nav"
           className={`nav ${menuOpen ? "nav-open" : ""}`}
           aria-label="Main navigation"
         >
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `nav-link${isActive ? " active" : ""}`
-            }
-            onClick={handleNavClick}
-          >
-            About
-          </NavLink>
+          <NavLink to="/"           className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>About</NavLink>
+          <NavLink to="/publication" className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Publications</NavLink>
+          <NavLink to="/project"    className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Projects</NavLink>
+          <NavLink to="/skills"     className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Skills</NavLink>
+          <NavLink to="/awards"     className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Awards</NavLink>
+          <NavLink to="/news"       className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>News</NavLink>
 
-          <NavLink
-            to="/publication"
-            className={({ isActive }) =>
-              `nav-link${isActive ? " active" : ""}`
-            }
+          {/* CV Download */}
+          <a
+            href={`${import.meta.env.BASE_URL}Girish_CV.pdf`}
+            download="Girish_CV.pdf"
+            className="cv-download-btn"
             onClick={handleNavClick}
           >
-            Publications
-          </NavLink>
-
-          <NavLink
-            to="/project"
-            className={({ isActive }) =>
-              `nav-link${isActive ? " active" : ""}`
-            }
-            onClick={handleNavClick}
-          >
-            Project
-          </NavLink>
-
-          <NavLink
-            to="/awards"
-            className={({ isActive }) =>
-              `nav-link${isActive ? " active" : ""}`
-            }
-            onClick={handleNavClick}
-          >
-            Awards
-          </NavLink>
-
-          <NavLink
-            to="/news"
-            className={({ isActive }) =>
-              `nav-link${isActive ? " active" : ""}`
-            }
-            onClick={handleNavClick}
-          >
-            News
-          </NavLink>
+            CV ↓
+          </a>
         </nav>
 
-        {/* ===== FAR RIGHT: THEME TOGGLE + HAMBURGER ===== */}
+        {/* FAR RIGHT: THEME TOGGLE + HAMBURGER */}
         <div className="right-controls">
-          {/* theme toggle */}
           <button
             className="icon-button theme-toggle"
             aria-label="Toggle theme"
@@ -145,12 +112,8 @@ export default function Header() {
           >
             {dark ? "☀" : "☾"}
           </button>
-
-          {/* hamburger (only visible on mobile via CSS) */}
           <button
-            className={`icon-button nav-toggle ${
-              menuOpen ? "nav-toggle-open" : ""
-            }`}
+            className={`icon-button nav-toggle ${menuOpen ? "nav-toggle-open" : ""}`}
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
             aria-controls="main-nav"

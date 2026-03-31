@@ -1,0 +1,167 @@
+.stats-bar {
+  display: flex;
+  margin: 36px 0 8px;
+  /* align with the text column — offset by avatar column width + gap */
+  margin-left: calc(var(--avatar-size, 280px) + var(--intro-gap, 32px));
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  width: calc(100% - var(--avatar-size, 280px) - var(--intro-gap, 32px));
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px;
+  border-right: 1px solid #e5e7eb;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-item:hover {
+  background: #f0f7ff;
+}
+
+/* Scholar link stat */
+.stat-item--link {
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(135deg, #f0f7ff 0%, #fff 100%);
+}
+
+.stat-item--link:hover {
+  background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+}
+
+.stat-scholar-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #0e387a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.stat-item--link:hover .stat-scholar-badge {
+  opacity: 1;
+}
+
+.stat-loading {
+  opacity: 0.4;
+  font-size: 1.6rem;
+}
+
+.stat-icon {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #0e387a;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-number--scholar {
+  color: #1d4ed8;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* Dark mode */
+body.dark-mode .stats-bar {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: none;
+}
+
+body.dark-mode .stat-item {
+  border-right-color: #334155;
+}
+
+body.dark-mode .stat-item:hover {
+  background: #1e3a5f;
+}
+
+body.dark-mode .stat-number {
+  color: #93c5fd;
+}
+
+body.dark-mode .stat-label {
+  color: #9ca3af;
+}
+
+body.dark-mode .stat-item--link {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+}
+
+body.dark-mode .stat-item--link:hover {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e3a5f 100%);
+}
+
+body.dark-mode .stat-scholar-badge {
+  color: #93c5fd;
+}
+
+body.dark-mode .stat-number--scholar {
+  color: #60a5fa;
+}
+
+/* Reset offset on tablet/mobile where grid is single column */
+@media (max-width: 768px) {
+  .stats-bar {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Mobile: wrap into 2 or 3 columns */
+@media (max-width: 600px) {
+  .stats-bar {
+    flex-wrap: wrap;
+    margin-left: 0;
+    width: 100%;
+  }
+  .stat-item {
+    flex: 1 1 33.33%;
+    padding: 18px 10px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  /* First row: 3 items */
+  .stat-item:nth-child(3) {
+    border-right: none;
+  }
+  /* Second row: 2 items */
+  .stat-item:nth-child(4),
+  .stat-item:nth-child(5) {
+    flex: 1 1 50%;
+    border-bottom: none;
+  }
+  .stat-item:nth-child(5) {
+    border-right: none;
+  }
+  body.dark-mode .stat-item {
+    border-bottom-color: #334155;
+  }
+}
