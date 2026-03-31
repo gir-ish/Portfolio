@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo } from "react";
 import React from "react";
 import "../components/Publication.css";
 import CoauthorNetwork from "./CoauthorNetwork";
@@ -148,31 +148,9 @@ function highlightAuthor(text) {
     .replace(/Girish∗/g,     '<span class="author-accent">Girish∗</span>');
 }
 
-/* ── Staggered list reveal ── */
-function useStaggerReveal(listRef, deps = [], itemSelector = ".pub-row") {
-  useEffect(() => {
-    const container = listRef.current;
-    if (!container) return;
-    // Reset all rows to hidden first
-    container.querySelectorAll(itemSelector).forEach((el) => {
-      el.classList.remove("pub-row--visible");
-    });
-    // Small delay so the DOM updates before we measure
-    const raf = requestAnimationFrame(() => {
-      const items = container.querySelectorAll(itemSelector);
-      items.forEach((el, i) => {
-        setTimeout(() => el.classList.add("pub-row--visible"), i * 40);
-      });
-    });
-    return () => cancelAnimationFrame(raf);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [listRef, ...deps]);
-}
-
 export default function Publications() {
   const [search,      setSearch]      = useState("");
   const [activeVenue, setActiveVenue] = useState("All");
-  const listRef = useRef(null);
 
   // Filter list
   const filtered = useMemo(() => {
@@ -203,7 +181,8 @@ export default function Publications() {
     .map(Number)
     .sort((a, b) => b - a);
 
-  useStaggerReveal(listRef, [filtered]);
+  // Global index for CSS animation-delay stagger
+  let rowIndex = 0;
 
   return (
     <section id="publications" className="pubs-page" aria-labelledby="pubs-title">
@@ -236,7 +215,7 @@ export default function Publications() {
         {filtered.length === 0 ? (
           <p className="pubs-empty">No publications match your search.</p>
         ) : (
-          <ol className="pubs-list" ref={listRef}>
+          <ol className="pubs-list" key={`${activeVenue}|${search}`}>
             {years.map((year, yi) => (
               <React.Fragment key={year}>
                 {/* Year separator — first group has no top line */}
@@ -245,7 +224,7 @@ export default function Publications() {
                 </li>
 
                 {byYear[year].map((p, i) => (
-                  <li key={`${year}-${i}`} className="pub-row">
+                  <li key={`${year}-${i}`} className="pub-row" style={{ "--pub-i": rowIndex++ }}>
                     <h3 className="pub-title">{p.title}</h3>
                     <p
                       className="pub-authors"
