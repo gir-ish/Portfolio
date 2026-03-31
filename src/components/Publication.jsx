@@ -181,9 +181,6 @@ export default function Publications() {
     .map(Number)
     .sort((a, b) => b - a);
 
-  // Global index for CSS animation-delay stagger
-  let rowIndex = 0;
-
   return (
     <section id="publications" className="pubs-page" aria-labelledby="pubs-title">
       <div className="wrap">
@@ -224,7 +221,7 @@ export default function Publications() {
                 </li>
 
                 {byYear[year].map((p, i) => (
-                  <li key={`${year}-${i}`} className="pub-row" style={{ "--pub-i": rowIndex++ }}>
+                  <li key={`${year}-${i}`} className="pub-row">
                     <h3 className="pub-title">{p.title}</h3>
                     <p
                       className="pub-authors"

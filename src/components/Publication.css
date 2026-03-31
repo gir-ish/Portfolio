@@ -106,11 +106,6 @@
 /* ============================
    Publication Row
    ============================ */
-@keyframes pubReveal {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .pubs-page .pub-row {
   display: block;
   margin: 24px 0 32px;
@@ -120,8 +115,7 @@
   border-bottom: 1px solid rgba(14,56,122,0.08);
   border-radius: 0;
   backdrop-filter: none;
-  animation: pubReveal 0.35s ease both;
-  animation-delay: calc(var(--pub-i, 0) * 0.04s);
+  opacity: 1;
 }
 
 body.dark-mode .pubs-page .pub-row {
