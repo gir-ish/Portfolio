@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch citation count from Google Scholar and write to public/citations.json."""
+"""Fetch citation count from Google Scholar profile page."""
 
 import json
 import os
@@ -10,34 +10,33 @@ from datetime import date
 SCHOLAR_ID = "4HIGa7AAAAAJ"
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "public", "citations.json")
 
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
 
-def fetch_via_scholarly():
-    from scholarly import scholarly
-    author = scholarly.search_author_id(SCHOLAR_ID)
-    scholarly.fill(author, sections=["indices"])
-    return author.get("citedby", None)
 
-
-def fetch_via_scrape():
-    """Lightweight fallback: scrape the public Scholar profile page."""
+def scrape_citations():
     url = f"https://scholar.google.com/citations?user={SCHOLAR_ID}&hl=en"
-    req = urllib.request.Request(url, headers={
-        "User-Agent": (
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
-    })
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    req = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=20) as resp:
         html = resp.read().decode("utf-8", errors="ignore")
-    # Scholar renders total citations in a <td> after the "Citations" header
-    match = re.search(
-        r'Citations</a></td><td[^>]*>(\d+)</td>', html
-    )
+
+    # Primary: <td class="gsc_rsb_std">15</td> (first value = all-time citations)
+    match = re.search(r'gsc_rsb_std[^>]*>(\d+)<', html)
     if match:
         return int(match.group(1))
-    # Broader fallback pattern
-    match = re.search(r'"gs_ri".*?(\d{2,})', html)
-    return int(match.group(1)) if match else None
+
+    # Fallback pattern
+    match = re.search(r'"citedby"\s*:\s*(\d+)', html)
+    if match:
+        return int(match.group(1))
+
+    return None
 
 
 def load_existing():
@@ -48,34 +47,23 @@ def load_existing():
         return 0
 
 
-def fetch_citations():
+def main():
     count = None
-
-    # Try scholarly first
     try:
-        count = fetch_via_scholarly()
-        print(f"scholarly succeeded: {count}")
+        count = scrape_citations()
+        print(f"Fetched citations: {count}")
     except Exception as e:
-        print(f"scholarly failed: {e}")
+        print(f"Fetch failed: {e}")
 
-    # Fallback to scraping
-    if count is None:
-        try:
-            count = fetch_via_scrape()
-            print(f"scrape succeeded: {count}")
-        except Exception as e:
-            print(f"scrape failed: {e}")
-
-    # Keep existing value if both fail
     if count is None:
         count = load_existing()
-        print(f"using existing value: {count}")
+        print(f"Keeping existing value: {count}")
 
     payload = {"citations": count, "updated": str(date.today())}
     with open(OUT_PATH, "w") as f:
         json.dump(payload, f)
-    print(f"Saved citations={count} to {OUT_PATH}")
+    print(f"Saved: {payload}")
 
 
 if __name__ == "__main__":
-    fetch_citations()
+    main()
