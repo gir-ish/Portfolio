@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import React from "react";
 import "../components/Publication.css";
 import CoauthorNetwork from "./CoauthorNetwork";
+import CitationChart   from "./CitationChart";
 
 const confPubs = [
   {
@@ -238,6 +239,7 @@ export default function Publications() {
             ))}
           </ol>
         )}
+        <CitationChart pubs={confPubs} />
         <CoauthorNetwork />
       </div>
     </section>

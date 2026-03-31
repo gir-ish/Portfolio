@@ -1,0 +1,77 @@
+.chart-wrap {
+  margin: 48px 0 32px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0e387a;
+  margin: 0 0 4px;
+}
+
+.chart-sub {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin: 0 0 20px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-bottom: 20px;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.chart-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.chart-svg-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Dark mode */
+body.dark-mode .chart-wrap {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .chart-title {
+  color: #93c5fd;
+}
+
+body.dark-mode .chart-legend-item {
+  color: #cbd5e1;
+}
+
+body.dark-mode .chart-svg-wrap text {
+  fill: #cbd5e1 !important;
+}
+
+body.dark-mode .chart-svg-wrap .grid line {
+  stroke: #334155 !important;
+}
