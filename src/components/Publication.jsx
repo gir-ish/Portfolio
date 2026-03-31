@@ -149,27 +149,24 @@ function highlightAuthor(text) {
 }
 
 /* ── Staggered list reveal ── */
-function useStaggerReveal(listRef, itemSelector = ".pub-row") {
+function useStaggerReveal(listRef, deps = [], itemSelector = ".pub-row") {
   useEffect(() => {
     const container = listRef.current;
     if (!container) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const items = container.querySelectorAll(itemSelector);
-            items.forEach((el, i) => {
-              setTimeout(() => el.classList.add("pub-row--visible"), i * 60);
-            });
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [listRef, itemSelector]);
+    // Reset all rows to hidden first
+    container.querySelectorAll(itemSelector).forEach((el) => {
+      el.classList.remove("pub-row--visible");
+    });
+    // Small delay so the DOM updates before we measure
+    const raf = requestAnimationFrame(() => {
+      const items = container.querySelectorAll(itemSelector);
+      items.forEach((el, i) => {
+        setTimeout(() => el.classList.add("pub-row--visible"), i * 40);
+      });
+    });
+    return () => cancelAnimationFrame(raf);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listRef, ...deps]);
 }
 
 export default function Publications() {
@@ -206,7 +203,7 @@ export default function Publications() {
     .map(Number)
     .sort((a, b) => b - a);
 
-  useStaggerReveal(listRef);
+  useStaggerReveal(listRef, [filtered]);
 
   return (
     <section id="publications" className="pubs-page" aria-labelledby="pubs-title">
