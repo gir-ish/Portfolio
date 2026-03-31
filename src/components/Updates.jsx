@@ -139,7 +139,7 @@ export default function Updates() {
           </div>
 
           <footer className="site-footer">
-            © 2026 Girish. Last updated: Jan 2026.
+            © 2026 Girish. Last updated: Mar 2026.
           </footer>
         </div>
       </div>

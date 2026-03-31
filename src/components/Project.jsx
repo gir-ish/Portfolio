@@ -8,25 +8,25 @@ const projects = [
     title: "Helix: Versatile AI Assistant",
     description:
       "Agentic toolkit using LangChain + FastAPI + Twilio with async MongoDB; multi-channel and domain-adaptable.",
-    github: "https://github.com/your-user/helix-ai-assistant",
+    github: "https://github.com/gir-ish/Helix-AI-Assistant",
   },
   {
     title: "TwinVerify",
     description:
       "Two-factor audio + text authentication; Whisper + speaker embeddings + Flask; integrates C++ crypto executables.",
-    github: "https://github.com/your-user/twinverify",
+    github: "https://github.com/gir-ish/TwinVerify",
   },
   {
     title: "Multimodal Personality via Contrastive Learning",
     description:
       "Audio-visual embeddings with contrastive objectives to predict OCEAN traits; TensorFlow + HF Transformers.",
-    github: "https://github.com/your-user/multimodal-personality",
+    github: "https://github.com/gir-ish/Personality-Detection",
   },
   {
     title: "Golf Phase Detection",
     description:
       "OpenCV / MediaPipe / FFmpeg pipeline for golf swing phase segmentation with a coach-friendly Streamlit UI.",
-    github: "https://github.com/your-user/golf-phase-detection",
+    github: "https://github.com/gir-ish/Golf_Phase_Detection",
   },
 ];
 
