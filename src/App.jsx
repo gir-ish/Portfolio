@@ -1,17 +1,22 @@
-// src/App.jsx
 import "./components/tokens.css";
 import "./components/global.css";
 
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-import Header     from "./components/Header.jsx";
-import Home       from "./components/Home.jsx";
-import Publication from "./components/Publication.jsx";
-import Project    from "./components/Project.jsx";
-import Awards     from "./components/awards.jsx";
-import News       from "./components/News.jsx";
-import Skills     from "./components/Skills.jsx";
+import Header           from "./components/Header.jsx";
+import Home             from "./components/Home.jsx";
+import Publication      from "./components/Publication.jsx";
+import Project          from "./components/Project.jsx";
+import Awards           from "./components/awards.jsx";
+import News             from "./components/News.jsx";
+import Skills           from "./components/Skills.jsx";
+import Blog             from "./components/Blog.jsx";
+import SplashScreen     from "./components/SplashScreen.jsx";
+import PageTransition   from "./components/PageTransition.jsx";
+import ParticleBackground from "./components/ParticleBackground.jsx";
+import BackToTop        from "./components/BackToTop.jsx";
 
 /* ── Custom cursor (desktop only) ── */
 function CustomCursor() {
@@ -44,22 +49,39 @@ function CustomCursor() {
   );
 }
 
+/* ── Animated routes ── */
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/"            element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/publication" element={<PageTransition><Publication /></PageTransition>} />
+        <Route path="/project"     element={<PageTransition><Project /></PageTransition>} />
+        <Route path="/skills"      element={<PageTransition><Skills /></PageTransition>} />
+        <Route path="/awards"      element={<PageTransition><Awards /></PageTransition>} />
+        <Route path="/news"        element={<PageTransition><News /></PageTransition>} />
+        <Route path="/blog"        element={<PageTransition><Blog /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   const year = new Date().getFullYear();
+  const [splashDone, setSplashDone] = useState(false);
 
   return (
     <>
+      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
+
+      <ParticleBackground />
       <CustomCursor />
       <Header />
 
-      <Routes>
-        <Route path="/"            element={<Home />} />
-        <Route path="/publication" element={<Publication />} />
-        <Route path="/project"     element={<Project />} />
-        <Route path="/skills"      element={<Skills />} />
-        <Route path="/awards"      element={<Awards />} />
-        <Route path="/news"        element={<News />} />
-      </Routes>
+      <AnimatedRoutes />
+
+      <BackToTop />
 
       <footer className="site-footer" aria-label="Footer">
         <div className="page">

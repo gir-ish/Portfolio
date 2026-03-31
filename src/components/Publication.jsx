@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import React from "react";
 import "../components/Publication.css";
+import CoauthorNetwork from "./CoauthorNetwork";
 
 const confPubs = [
   {
@@ -237,6 +238,7 @@ export default function Publications() {
             ))}
           </ol>
         )}
+        <CoauthorNetwork />
       </div>
     </section>
   );

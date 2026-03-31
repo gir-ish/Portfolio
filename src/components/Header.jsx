@@ -91,6 +91,7 @@ export default function Header() {
           <NavLink to="/skills"     className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Skills</NavLink>
           <NavLink to="/awards"     className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Awards</NavLink>
           <NavLink to="/news"       className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>News</NavLink>
+          <NavLink to="/blog"       className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={handleNavClick}>Blog</NavLink>
 
           {/* CV Download */}
           <a

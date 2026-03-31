@@ -20,5 +20,15 @@ export default defineConfig({
   base: "/Portfolio/",
   build: {
     outDir: "docs",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-react":  ["react", "react-dom", "react-router-dom"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-d3":     ["d3"],
+          "vendor-md":     ["react-markdown"],
+        },
+      },
+    },
   },
 });

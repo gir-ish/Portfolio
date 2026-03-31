@@ -1,6 +1,7 @@
 // src/pages/Project.jsx  (or wherever you keep your sections)
 
 import React from "react";
+import Tilt from "react-parallax-tilt";
 import "./Project.css";
 
 const projects = [
@@ -38,7 +39,18 @@ export default function Project() {
 
         <div className="projects-list">
           {projects.map((project) => (
-            <article key={project.title} className="project-card">
+            <Tilt
+              key={project.title}
+              tiltMaxAngleX={6}
+              tiltMaxAngleY={6}
+              glareEnable={true}
+              glareMaxOpacity={0.08}
+              glareColor="#a5b4fc"
+              glarePosition="all"
+              scale={1.02}
+              transitionSpeed={400}
+            >
+            <article className="project-card">
               <header className="project-header">
                 <h2 className="project-title">{project.title}</h2>
 
@@ -55,6 +67,7 @@ export default function Project() {
 
               <p className="project-description">{project.description}</p>
             </article>
+            </Tilt>
           ))}
         </div>
       </section>
