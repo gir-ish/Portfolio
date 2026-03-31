@@ -1,15 +1,15 @@
 /* ============================
-   Publications Page (clean)
+   Publications Page
    ============================ */
 
-/* Page shell */
 .pubs-page {
-  padding: 36px 0 64px;
-  margin-top: 100px;
+  padding: 36px 8vw 64px;
+  margin-top: 80px;
+  min-height: 100vh;
 }
 
 .pubs-page .wrap {
-  max-width: 2000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -17,19 +17,12 @@
    Heading
    ============================ */
 .pubs-page .pubs-heading {
-  margin: 0 0 20px;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  margin: 0 0 24px;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 800;
-  color: #0e387a;
   text-align: left;
-  margin-left: 100px;
   position: relative;
-  padding-right: clamp(120px, 16vw, 320px);
 }
-
-/* heading underline removed — year separators provide visual dividers */
-
-/* heading ghost year removed — year is now shown by dynamic year separators */
 
 /* ============================
    Search + Filter Controls
@@ -39,20 +32,21 @@
   flex-direction: column;
   gap: 14px;
   margin: 0 0 40px;
-  margin-left: 100px;
 }
 
 .pubs-search {
   width: 100%;
   max-width: 480px;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border: 1.5px solid #e5e7eb;
   border-radius: 999px;
   font-size: 0.92rem;
+  font-family: inherit;
   outline: none;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
   color: #111;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pubs-search:focus {
@@ -67,26 +61,30 @@
 }
 
 .filter-chip {
-  padding: 5px 14px;
+  padding: 5px 16px;
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1.5px solid #e5e7eb;
-  background: #fff;
+  border: 1.5px solid rgba(14,56,122,0.18);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
   color: #374151;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
 }
 
 .filter-chip:hover {
   border-color: #0e387a;
   color: #0e387a;
+  box-shadow: 0 0 12px rgba(14,56,122,0.15);
+  transform: translateY(-1px);
 }
 
 .filter-chip--active {
-  background: #0e387a;
-  border-color: #0e387a;
+  background: linear-gradient(135deg, #0e387a, #7c3aed);
+  border-color: transparent;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(14,56,122,0.3);
 }
 
 .pubs-empty {
@@ -96,176 +94,153 @@
   padding: 48px 0;
 }
 
-/* Dark mode controls */
-body.dark-mode .pubs-search {
-  background: #1e293b;
-  border-color: #334155;
-  color: #f9fafb;
-}
-
-body.dark-mode .pubs-search:focus {
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
-}
-
-body.dark-mode .filter-chip {
-  background: #1e293b;
-  border-color: #334155;
-  color: #9ca3af;
-}
-
-body.dark-mode .filter-chip:hover {
-  border-color: #60a5fa;
-  color: #60a5fa;
-}
-
-body.dark-mode .filter-chip--active {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-  color: #fff;
-}
-
-@media (max-width: 1024px) {
-  .pubs-controls { margin-left: 0; }
-}
-
 /* ============================
    List Layout
    ============================ */
 .pubs-page .pubs-list {
-  list-style: disc;
+  list-style: none;
   margin: 0;
-  padding-left: 1.25rem;
+  padding: 0;
 }
 
 /* ============================
-   Row
+   Publication Row
    ============================ */
 .pubs-page .pub-row {
   display: block;
-  margin: 36px 0 46px;
-  text-align: left;
+  margin: 32px 0 40px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(14,56,122,0.08);
+  /* stagger reveal — starts hidden */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease, box-shadow 0.2s ease;
+}
+
+.pubs-page .pub-row.pub-row--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pubs-page .pub-row:hover {
+  box-shadow: 0 6px 24px rgba(14,56,122,0.1);
+  transform: translateY(-2px);
+}
+
+/* Keep hover working after visible */
+.pubs-page .pub-row.pub-row--visible:hover {
+  transform: translateY(-2px);
 }
 
 /* ============================
    Title
    ============================ */
 .pubs-page .pub-title {
-  margin: 0 0 8px;
-  font-weight: 600;
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  line-height: 1.15;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  color: #111;
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.5;
+  font-family: inherit;
+  color: #111827;
   font-style: italic;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: clip;
-  max-width: 100%;
-  text-align: left;
-  padding: 0;
-  letter-spacing: -0.65px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .pubs-page .pub-title::before {
-  content: "• ";
-  margin-right: 0.35rem;
-  font-weight: 700;
-  color: #111;
+  content: "•";
+  flex-shrink: 0;
+  font-weight: 900;
+  color: #0e387a;
+  font-style: normal;
+  margin-top: 1px;
 }
 
 /* ============================
    Authors
    ============================ */
 .pubs-page .pub-authors {
-  margin: 6px 0 10px;
-  color: #374151;
-  line-height: 2.55;
-  font-size: 1rem;
-  text-align: left;
-  margin-left: 20px;
-  margin-top: 18px;
+  margin: 0 0 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  padding-left: 18px;
 }
 
 /* ============================
-   Chips Row
+   Chips Row — badge + PDF aligned
    ============================ */
 .pubs-page .pub-actions {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: -10px;
-  text-align: left;
-  margin-left: 50px;
+  padding-left: 18px;
 }
 
-/* Venue badge */
+/* Venue badge — gradient pill */
 .pubs-page .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   line-height: 1;
-  padding: 6px 9px;
-  background: #e5e7eb;
-  color: #111;
-  border-radius: 0;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, #0e387a, #7c3aed);
+  color: #fff;
+  border-radius: 999px;
   white-space: nowrap;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(14,56,122,0.2);
 }
 
-/* PDF chip */
+/* PDF button */
 .pubs-page .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   line-height: 1;
-  padding: 6px 11px;
-  border: 2px solid #111;
-  color: #111;
-  background: #fff;
-  border-radius: 0;
+  padding: 5px 13px;
+  border: 1.5px solid #0e387a;
+  color: #0e387a;
+  background: transparent;
+  border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
-  transition:
-    background 0.15s ease,
-    color 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.pubs-page .btn:hover,
-.pubs-page .btn:active {
+.pubs-page .btn:hover {
   background: #0e387a;
   color: #fff;
-  border-color: #0e387a;
-}
-
-.pubs-page .btn:focus,
-.pubs-page .btn:focus-visible {
-  outline: none;
-  border-color: #0e387a;
+  box-shadow: 0 4px 12px rgba(14,56,122,0.25);
+  text-decoration: none;
 }
 
 /* ============================
    Dynamic Year Separator
-   Line + ghost year on same row
    ============================ */
 .pubs-page .pubs-year-sep {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 20px;
-  margin: 52px 0 0;
+  margin: 48px 0 0;
+  padding: 0;
 }
 
-/* The horizontal line grows to fill remaining width */
 .pubs-page .pubs-year-sep::before {
   content: "";
   flex: 1;
   height: 1px;
-  background: #ececec;
+  background: linear-gradient(90deg, transparent, #d1d5db);
 }
 
-/* First year (2026): no line — just the ghost year right-aligned */
 .pubs-page .pubs-year-sep--first {
   margin-top: 0;
   justify-content: flex-end;
@@ -275,17 +250,15 @@ body.dark-mode .filter-chip--active {
   display: none;
 }
 
-/* Ghost year label */
 .pubs-page .year-sep-label {
-  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 900;
   line-height: 1;
-  color: #111;
-  opacity: 0.06;
+  color: #0e387a;
+  opacity: 0.07;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
-  padding-right: 64px;
 }
 
 /* Highlight Girish */
@@ -293,128 +266,130 @@ body.dark-mode .filter-chip--active {
   color: #0e387a;
   font-weight: 700;
   text-decoration: underline dashed;
-  text-decoration-color: #0e387a;
+  text-decoration-color: rgba(14,56,122,0.5);
   text-underline-offset: 3px;
-}
-
-/* ============================
-   Responsive
-   ============================ */
-@media (max-width: 1024px) {
-  .pubs-page {
-    padding: 36px 1.5rem 64px;
-    margin-top: 80px;
-  }
-
-  .pubs-page .wrap {
-    max-width: 100%;
-  }
-
-  .pubs-page .pubs-heading {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .pubs-page {
-    padding: 32px 1.25rem 56px;
-    margin-top: 70px;
-  }
-
-  .pubs-page .pubs-heading {
-    font-size: 1.5rem;
-    margin-bottom: 44px;
-    text-align: left;
-  }
-
-  .pubs-page .pub-row {
-    margin: 28px 0 36px;
-  }
-
-  .pubs-page .pub-authors {
-    margin-left: 0;
-    margin-top: 10px;
-    line-height: 1.8;
-  }
-
-  .pubs-page .pub-actions {
-    margin-left: 0;
-    gap: 8px;
-  }
-
-  .pubs-page .pubs-list > li:nth-child(3)::before,
-  .pubs-page .pubs-list > li:last-child::before {
-    left: 0;
-    right: 0;
-  }
-
-  .pubs-page .pubs-heading::before,
-  .pubs-page .pubs-list > li:nth-child(3)::after,
-  .pubs-page .pubs-list > li:last-child::after {
-    font-size: clamp(1.8rem, 7vw, 3rem);
-    right: 0;
-    margin-right: 0;
-  }
-
-  .pubs-page .pubs-list > li:nth-child(3)::after,
-  .pubs-page .pubs-list > li:last-child::after {
-    right: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .pubs-page {
-    padding: 28px 1rem 48px;
-    margin-top: 64px;
-  }
-
-  .pubs-page .pubs-heading {
-    font-size: 1.35rem;
-  }
-
-  .pubs-page .pub-title {
-    font-size: 1rem;
-  }
-
-  .pubs-page .pub-authors {
-    font-size: 0.95rem;
-  }
-
-  .pubs-page .badge,
-  .pubs-page .btn {
-    font-size: 0.68rem;
-    padding: 5px 9px;
-  }
-
-  .pubs-page .year-sep-label {
-    display: none;
-  }
 }
 
 /* ============================
    Dark mode
    ============================ */
+body.dark-mode .pubs-page .pub-row {
+  background: rgba(30,41,59,0.7);
+  border-color: rgba(255,255,255,0.06);
+}
+
+body.dark-mode .pubs-page .pub-row:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
 body.dark-mode .pubs-page .pub-title {
-  color: #f9fafb;
-}
-
-body.dark-mode .pubs-page .pub-authors {
-  color: #e5e7eb;
-}
-
-body.dark-mode .pubs-page .author-accent {
-  color: #0e387a;
-}
-
-body.dark-mode .pubs-page .year-sep-label {
-  color: #f9fafb;
-  opacity: 0.1;
-}
-
-body.dark-mode .pubs-page .pubs-year-sep::before {
-  background: #374151;
+  color: #f1f5f9;
 }
 
 body.dark-mode .pubs-page .pub-title::before {
-  color: #f9fafb;
+  color: #60a5fa;
+}
+
+body.dark-mode .pubs-page .pub-authors {
+  color: #94a3b8;
+}
+
+body.dark-mode .pubs-page .author-accent {
+  color: #60a5fa;
+  text-decoration-color: rgba(96,165,250,0.5);
+}
+
+body.dark-mode .pubs-page .btn {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+body.dark-mode .pubs-page .btn:hover {
+  background: #60a5fa;
+  color: #0f172a;
+}
+
+body.dark-mode .pubs-page .year-sep-label {
+  color: #f1f5f9;
+  opacity: 0.08;
+}
+
+body.dark-mode .pubs-page .pubs-year-sep::before {
+  background: linear-gradient(90deg, transparent, #334155);
+}
+
+body.dark-mode .pubs-search {
+  background: rgba(30,41,59,0.8);
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+body.dark-mode .pubs-search::placeholder { color: #64748b; }
+
+body.dark-mode .pubs-search:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.15);
+}
+
+body.dark-mode .filter-chip {
+  background: rgba(30,41,59,0.8);
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+body.dark-mode .filter-chip:hover {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+body.dark-mode .filter-chip--active {
+  background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+  border-color: transparent;
+  color: #fff;
+}
+
+body.dark-mode .pubs-empty { color: #64748b; }
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 1024px) {
+  .pubs-page { padding: 32px 4vw 64px; }
+}
+
+@media (max-width: 768px) {
+  .pubs-page {
+    padding: 28px 1.25rem 56px;
+    margin-top: 70px;
+  }
+
+  .pubs-page .pub-row {
+    padding: 16px;
+    margin: 20px 0 28px;
+  }
+
+  .pubs-page .pub-title { font-size: 0.95rem; }
+
+  .pubs-page .pub-authors {
+    font-size: 0.85rem;
+    padding-left: 0;
+  }
+
+  .pubs-page .pub-actions { padding-left: 0; }
+
+  .pubs-search { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .pubs-page {
+    padding: 24px 1rem 48px;
+    margin-top: 64px;
+  }
+
+  .pubs-page .pub-title { font-size: 0.92rem; gap: 6px; }
+
+  .pubs-page .badge,
+  .pubs-page .btn { font-size: 0.68rem; padding: 4px 10px; }
+
+  .pubs-page .year-sep-label { display: none; }
 }

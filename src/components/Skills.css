@@ -10,6 +10,7 @@
 
 .skills-page {
   padding: 80px 8vw 80px;
+  min-height: 100vh;
 }
 
 .skills-container {
@@ -20,8 +21,8 @@
 .skills-heading {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  color: #0e387a;
   margin: 0 0 8px;
+  /* gradient from global.css */
 }
 
 .skills-sub {
@@ -33,7 +34,7 @@
 .skills-groups {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 36px;
 }
 
 .skill-group {
@@ -49,14 +50,13 @@
   margin-bottom: 16px;
 }
 
-.skill-group-icon {
-  font-size: 1.4rem;
-}
+.skill-group-icon { font-size: 1.3rem; }
 
 .skill-group-title {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
+  color: #1f2937;
   letter-spacing: 0.01em;
 }
 
@@ -86,31 +86,33 @@
   box-shadow: 0 4px 12px color-mix(in srgb, var(--tag-color, #0e387a) 20%, transparent);
 }
 
-/* Dark mode */
-body.dark-mode .skills-heading {
-  color: #93c5fd;
-}
+/* ── Dark mode ── */
+body.dark-mode .skills-sub { color: #94a3b8; }
 
-body.dark-mode .skills-sub {
-  color: #9ca3af;
-}
+body.dark-mode .skill-group-header { border-left-color: #60a5fa; }
+
+body.dark-mode .skill-group-title { color: #e2e8f0; }
 
 body.dark-mode .skill-tag {
-  background: color-mix(in srgb, var(--tag-color, #0e387a) 15%, #1e293b);
-  border-color: color-mix(in srgb, var(--tag-color, #0e387a) 35%, transparent);
-  color: color-mix(in srgb, var(--tag-color, #0e387a) 70%, #ffffff);
+  background: color-mix(in srgb, var(--tag-color, #0e387a) 12%, #1e293b);
+  border-color: color-mix(in srgb, var(--tag-color, #0e387a) 40%, transparent);
+  color: color-mix(in srgb, var(--tag-color, #0e387a) 80%, #ffffff);
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .skills-page {
-    padding: 60px 1.25rem 60px;
-  }
+  .skills-page   { padding: 60px 1.25rem 60px; }
+  .skills-groups { gap: 28px; }
+  .skill-tags    { padding-left: 0; gap: 8px; }
 }
 
 @media (max-width: 480px) {
+  .skills-page { padding: 48px 1rem 48px; }
+
   .skill-tag {
     font-size: 0.82rem;
     padding: 5px 12px;
   }
+
+  .skill-group-header { padding-left: 10px; }
 }

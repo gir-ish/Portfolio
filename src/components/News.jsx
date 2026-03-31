@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./News.css";
 
 const TYPE = {
@@ -103,26 +103,60 @@ const newsItems = [
 ];
 
 const News = () => {
+  const timelineRef = useRef(null);
+
+  useEffect(() => {
+    const container = timelineRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        // Animate SVG path drawing
+        container.classList.add("tl-drawn");
+        // Stagger-reveal each row
+        const rows = container.querySelectorAll(".tl-row");
+        rows.forEach((row, i) => {
+          setTimeout(() => row.classList.add("tl-row--visible"), i * 55);
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="news" className="news-section">
       <div className="news-inner">
-        <h2 className="news-heading">news</h2>
+        <h2 className="news-heading scroll-reveal">news</h2>
 
-        <div className="timeline">
+        <div className="timeline" ref={timelineRef}>
           {newsItems.map((item, index) => {
             const t = TYPE[item.type] || TYPE.paper;
             return (
-              <div className="tl-row" key={`${item.date}-${index}`} style={{ "--i": index }}>
+              <div className="tl-row" key={`${item.date}-${index}`}>
                 {/* Left: date */}
                 <div className="tl-date">{item.date}</div>
 
-                {/* Center: dot + line */}
+                {/* Center: dot + SVG line */}
                 <div className="tl-spine">
                   <div
                     className="tl-dot"
                     style={{ background: t.color, boxShadow: `0 0 0 4px ${t.bg}` }}
                   />
-                  {index < newsItems.length - 1 && <div className="tl-line" />}
+                  {index < newsItems.length - 1 && (
+                    <svg
+                      className="tl-svg-line"
+                      width="2"
+                      height="100%"
+                      preserveAspectRatio="none"
+                      style={{ flex: 1, minHeight: 28 }}
+                    >
+                      <line x1="1" y1="0" x2="1" y2="300" vectorEffect="non-scaling-stroke" />
+                    </svg>
+                  )}
                 </div>
 
                 {/* Right: content */}

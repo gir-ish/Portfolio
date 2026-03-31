@@ -1,13 +1,14 @@
 .stats-bar {
   display: flex;
   margin: 36px 0 8px;
-  /* align with the text column — offset by avatar column width + gap */
   margin-left: calc(var(--avatar-size, 280px) + var(--intro-gap, 32px));
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 16px;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(14,56,122,0.08), 0 1px 0 rgba(255,255,255,0.8) inset;
   width: calc(100% - var(--avatar-size, 280px) - var(--intro-gap, 32px));
 }
 
@@ -89,11 +90,21 @@
   text-align: center;
 }
 
+/* ── Flip number ── */
+@keyframes flipDown {
+  0%  { transform: rotateX(0);   opacity: 1; }
+  49% { transform: rotateX(-90deg); opacity: 0; }
+  50% { transform: rotateX(90deg);  opacity: 0; }
+  100%{ transform: rotateX(0);   opacity: 1; }
+}
+.flip-num { display: inline-block; }
+.flip-num--flipping { animation: flipDown 0.22s ease-in-out; }
+
 /* Dark mode */
 body.dark-mode .stats-bar {
-  background: #1e293b;
-  border-color: #334155;
-  box-shadow: none;
+  background: rgba(30,41,59,0.72);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
 }
 
 body.dark-mode .stat-item {

@@ -1,4 +1,7 @@
-/* src/styles/global.css */
+/* ═══════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════ */
+
 /* ── Custom cursor ── */
 .custom-cursor {
   position: fixed;
@@ -10,53 +13,73 @@
   transform: translate(-50%, -50%);
   z-index: 99999;
   opacity: 0;
-  transition:
-    left 0.07s ease,
-    top 0.07s ease,
-    opacity 0.2s ease,
-    transform 0.15s ease;
+  transition: left 0.07s ease, top 0.07s ease, opacity 0.2s ease, transform 0.15s ease;
 }
+.custom-cursor.cursor-visible { opacity: 1; }
+body.dark-mode .custom-cursor { border-color: rgba(147, 197, 253, 0.7); }
 
-.custom-cursor.cursor-visible {
-  opacity: 1;
-}
-
-body.dark-mode .custom-cursor {
-  border-color: rgba(147, 197, 253, 0.7);
-}
-
-* { box-sizing: border-box; }
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
 html, body { height: 100%; }
 html { overflow-x: hidden; }
-body { overflow-x: hidden; }
+body { overflow-x: hidden; padding-bottom: 44px; }
 
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0e387a, #7c3aed);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: #0e387a; }
+
+/* ── Base body ── */
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: var(--font-sans, 'Inter', ui-sans-serif, system-ui, sans-serif);
   color: var(--text);
-  background: var(--bg);
-  line-height: 1.5;
-  padding-top: var(--header-height); /* fixed header offset */
+  line-height: 1.6;
+  padding-top: var(--header-height);
+
+  /* Dot grid background */
+  background-color: #f8fafc;
+  background-image: radial-gradient(circle, rgba(14,56,122,0.07) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
 }
 
+/* ── Dark mode body ── */
+body.dark-mode {
+  background-color: #0f1117;
+  background-image: radial-gradient(circle, rgba(148,163,184,0.07) 1.5px, transparent 1.5px);
+  color: #f5f5f5;
+}
+
+/* ── Links ── */
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* ── Images ── */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ── Code ── */
 code {
   background: var(--code-bg);
   color: #e5e7eb;
   padding: 0.15rem 0.35rem;
   border-radius: 6px;
+  font-size: 0.88em;
 }
 
-/* Page container + grid: left = avatar column, right = content */
+/* ── Page container ── */
 .page {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: var(--space-6) var(--header-xpad);
+  position: relative;
+  z-index: 1;
 }
 
-/* Two-column layout that avoids padding math everywhere */
+/* ── Two-column grid ── */
 .page-grid {
   display: grid;
   grid-template-columns: minmax(220px, var(--avatar-size)) 1fr;
@@ -64,234 +87,202 @@ code {
   align-items: start;
 }
 
-/* section divider rhythm */
-.section { padding: var(--space-8) 0; }
-
-/* ✅ NEW: make images & videos scale on smaller screens */
-img,
-video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
+/* ── Smooth scroll ── */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
 
+/* ═══════════════════════════════════════════
+   GRADIENT TEXT UTILITY
+   ═══════════════════════════════════════════ */
+.gradient-text,
+h1.gradient-text,
+h2.gradient-text {
+  background: var(--grad-brand, linear-gradient(135deg, #0e387a 0%, #7c3aed 60%, #0891b2 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Apply gradient to major page headings automatically */
+.projects-heading,
+.pubs-heading,
+.awards-heading,
+.news-heading,
+.skills-heading,
+.blog-heading {
+  background: linear-gradient(135deg, #0e387a 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .projects-heading,
+body.dark-mode .pubs-heading,
+body.dark-mode .awards-heading,
+body.dark-mode .news-heading,
+body.dark-mode .skills-heading,
+body.dark-mode .blog-heading {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════
+   GLASSMORPHISM UTILITY
+   ═══════════════════════════════════════════ */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+body.dark-mode .glass {
+  background: rgba(15, 17, 23, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ═══════════════════════════════════════════
+   SECTION SCROLL-REVEAL ANIMATION
+   ═══════════════════════════════════════════ */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════
+   GLOW HOVER UTILITY
+   ═══════════════════════════════════════════ */
+.glow-hover {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.glow-hover:hover {
+  box-shadow: var(--glow-blue);
+  transform: translateY(-3px);
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
 .site-footer {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ffffff;
-  color: #111111;
-  border-top: 1px solid #e5e7eb;
+  height: 36px;
   z-index: 1000;
-}
 
-/* make the .page inside the footer small and centered */
-.site-footer .page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0.35rem 1rem;      /* small vertical padding instead of 3rem+ */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 2px solid transparent;
+  background-clip: padding-box;
+
+  /* Gradient top border trick */
+  box-shadow: 0 -1px 0 0 rgba(14,56,122,0.15),
+              inset 0 1px 0 0 rgba(124,58,237,0.1);
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* style the text itself */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0e387a, #7c3aed, #0891b2, #0e387a);
+  background-size: 300% 100%;
+  animation: footerGrad 6s linear infinite;
+}
+
+@keyframes footerGrad {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+.site-footer .page {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer-text {
   margin: 0;
-  text-align: center;
-  font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6b7280;
+  letter-spacing: 0.03em;
 }
 
-
-
-/* keep content from hiding behind the fixed footer */
-body { padding-bottom: 44px; }
-
-/* optional: link color inside footer */
-.site-footer a { color: #111111; text-decoration: none; }
+.site-footer a { color: #0e387a; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 
-
-/* LIGHT MODE – keep your normal colours here */
-body {
-  background-color: #f5f5f5;   /* whatever you use for light background */
-  color: #111111;
+/* Dark mode footer */
+body.dark-mode .site-footer {
+  background: rgba(15, 17, 23, 0.85);
+  box-shadow: 0 -1px 0 0 rgba(124,58,237,0.15);
 }
+body.dark-mode .footer-text { color: #9ca3af; }
+body.dark-mode .site-footer a { color: #93c5fd; }
 
-/* ================== DARK MODE ================== */
-body.dark-mode {
-  background-color: #111827;   /* dark grey/navy like in your screenshot */
-  color: #f9fafb;              /* main text colour */
-}
-
-/* headings */
+/* ═══════════════════════════════════════════
+   DARK MODE — HEADINGS & TEXT
+   ═══════════════════════════════════════════ */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
-body.dark-mode h6 {
-  color: #ffffff;
-}
+body.dark-mode h6 { color: #ffffff; }
 
-/* paragraphs + list items */
 body.dark-mode p,
-body.dark-mode li,
-body.dark-mode span {
-  color: #e5e5e5;
-}
+body.dark-mode li { color: #e5e5e5; }
 
-/* links on dark – soft blue */
-body.dark-mode a {
-  color: #93c5fd;
-}
+body.dark-mode a { color: #93c5fd; }
 
-/* if you have cards/boxes, make them dark too */
 body.dark-mode .card,
-body.dark-mode .section,
-body.dark-mode .box {
-  background-color: #111827;
-  border-color: #1f2937;
-}
-
-
-/* DARK MODE FOOTER */
-body.dark-mode footer,
-body.dark-mode .site-footer {
-  background-color: #111827;   /* same dark as header/page */
-  color: #e5e7eb;
-  border-top: 1px solid #1f2937;
-}
-
-/* links inside footer on dark */
-body.dark-mode footer a,
-body.dark-mode .site-footer a {
-  color: #9ca3af;
-}
-
-/* ===== DARK MODE: USE DARK GREY INSTEAD OF NAVY ===== */
-body.dark-mode {
-  background-color: #18181b;   /* dark grey */
-  color: #f5f5f5;
-}
-
-/* header + footer also dark grey */
-body.dark-mode .site-header,
-body.dark-mode .bar,
-body.dark-mode .site-footer {
-  background-color: #18181b;
-  border-color: #27272a;
-}
-
-/* common sections/cards on dark grey */
-body.dark-mode .card,
-body.dark-mode .section,
 body.dark-mode .news-card,
 body.dark-mode .project-card {
-  background-color: #18181b;
-  border-color: #27272a;
+  background-color: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255,255,255,0.06);
 }
 
-.container {
-  width: 100%;
-  /* ✅ works on all screens */
-  margin: 0 auto;
-}
+/* ═══════════════════════════════════════════
+   LAYOUT HELPERS
+   ═══════════════════════════════════════════ */
+.container { width: 100%; margin: 0 auto; }
+.section { padding: var(--space-8) 0; }
 
-.hero {
-  min-height: 60vh; /* or remove height */
-  padding: 2rem 1rem;
-}
+.cards { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.card  { flex: 1 1 280px; }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.card {
-  flex: 1 1 280px;   /* grows & shrinks */
-}
-
-/* ✅ MOBILE breakpoint – stack page grid + cards */
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .page {
-    /* tighter padding on small screens */
-    padding: var(--space-5) 1.25rem 3.5rem;
-  }
-
-  .page-grid {
-    grid-template-columns: 1fr;   /* avatar and content one below the other */
-    gap: var(--space-6);
-  }
-
-  .cards {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 100%;
-  }
+  .page { padding: var(--space-5) 1.25rem 3.5rem; }
+  .page-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .cards { flex-direction: column; }
+  .card  { width: 100%; }
+  body   { font-size: 14px; }
+  .section { padding: 2rem 1rem; }
 }
 
-/* Tablet and smaller (extra tweaks) */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  .header nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* ✅ Small phones */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  /* slightly less horizontal padding on very small screens */
-  .page {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  h1 { font-size: 1.8rem; }
+  .page { padding-left: 1rem; padding-right: 1rem; }
 }
-
-.site-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 32px;
-  background: #ffffff;
-  color: #111111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font: 600 14px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  border-top: 1px solid #e5e7eb;
-  z-index: 1000;
-}
-
-/* keep this so content doesn't hide behind footer */
-body {
-  padding-bottom: 44px;
-}
-
-

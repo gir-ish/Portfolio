@@ -17,6 +17,8 @@ import SplashScreen     from "./components/SplashScreen.jsx";
 import PageTransition   from "./components/PageTransition.jsx";
 import ParticleBackground from "./components/ParticleBackground.jsx";
 import BackToTop        from "./components/BackToTop.jsx";
+import CursorTrail      from "./components/CursorTrail.jsx";
+import Spotlight        from "./components/Spotlight.jsx";
 
 /* ── Custom cursor (desktop only) ── */
 function CustomCursor() {
@@ -67,15 +69,36 @@ function AnimatedRoutes() {
   );
 }
 
+/* ── Global scroll-reveal observer ── */
+function useScrollReveal() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.15 }
+    );
+    const attach = () => document.querySelectorAll(".scroll-reveal").forEach((el) => observer.observe(el));
+    attach();
+    // Re-attach after route changes (slight delay for new DOM)
+    const id = setInterval(attach, 800);
+    setTimeout(() => clearInterval(id), 4000);
+    return () => observer.disconnect();
+  }, []);
+}
+
 export default function App() {
   const year = new Date().getFullYear();
   const [splashDone, setSplashDone] = useState(false);
+  useScrollReveal();
 
   return (
     <>
       {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
 
       <ParticleBackground />
+      <CursorTrail />
+      <Spotlight />
       <CustomCursor />
       <Header />
 

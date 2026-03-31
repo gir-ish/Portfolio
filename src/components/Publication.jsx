@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import React from "react";
 import "../components/Publication.css";
 import CoauthorNetwork from "./CoauthorNetwork";
@@ -148,9 +148,34 @@ function highlightAuthor(text) {
     .replace(/Girish∗/g,     '<span class="author-accent">Girish∗</span>');
 }
 
+/* ── Staggered list reveal ── */
+function useStaggerReveal(listRef, itemSelector = ".pub-row") {
+  useEffect(() => {
+    const container = listRef.current;
+    if (!container) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const items = container.querySelectorAll(itemSelector);
+            items.forEach((el, i) => {
+              setTimeout(() => el.classList.add("pub-row--visible"), i * 60);
+            });
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [listRef, itemSelector]);
+}
+
 export default function Publications() {
   const [search,      setSearch]      = useState("");
   const [activeVenue, setActiveVenue] = useState("All");
+  const listRef = useRef(null);
 
   // Filter list
   const filtered = useMemo(() => {
@@ -181,10 +206,12 @@ export default function Publications() {
     .map(Number)
     .sort((a, b) => b - a);
 
+  useStaggerReveal(listRef);
+
   return (
     <section id="publications" className="pubs-page" aria-labelledby="pubs-title">
       <div className="wrap">
-        <h2 id="pubs-title" className="pubs-heading">Conference publications</h2>
+        <h2 id="pubs-title" className="pubs-heading scroll-reveal">Conference publications</h2>
 
         {/* Search + Venue filter */}
         <div className="pubs-controls">
@@ -212,7 +239,7 @@ export default function Publications() {
         {filtered.length === 0 ? (
           <p className="pubs-empty">No publications match your search.</p>
         ) : (
-          <ol className="pubs-list">
+          <ol className="pubs-list" ref={listRef}>
             {years.map((year, yi) => (
               <React.Fragment key={year}>
                 {/* Year separator — first group has no top line */}

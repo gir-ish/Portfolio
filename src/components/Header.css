@@ -50,10 +50,18 @@ body.dark-mode .cv-download-btn:hover {
   right: 0;
   z-index: 1000;
 
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  background: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(229,231,235,0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 24px rgba(14,56,122,0.06);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Becomes more opaque + elevated when user scrolls */
+.site-header.header-scrolled {
+  background: rgba(255,255,255,0.88);
+  box-shadow: 0 4px 32px rgba(14,56,122,0.12);
 }
 
 .bar {
@@ -104,8 +112,13 @@ body.dark-mode .cv-download-btn:hover {
 }
 
 .icon-button:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
+  transform: translateY(-2px);
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(14,56,122,0.45));
+}
+
+body.dark-mode .icon-button:hover {
+  filter: drop-shadow(0 0 6px rgba(147,197,253,0.5));
 }
 
 /* icon sizing via css */
@@ -143,21 +156,39 @@ body.dark-mode .cv-download-btn:hover {
   font-weight: 600;
   font-size: 0.95rem;
   border: 1px solid transparent;
-  transition:
-    color 0.18s ease,
-    border-color 0.18s ease,
-    background-color 0.18s ease;
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
+/* Sliding underline on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0e387a, #7c3aed);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after { transform: scaleX(1); }
+
 .nav-link:hover {
-  background: rgba(15, 23, 42, 0.04);
-  border-color: rgba(15, 23, 42, 0.08);
+  background: rgba(14,56,122,0.05);
+  color: #0e387a;
 }
 
 .nav-link.active {
-  color: #0b1120;
-  background: transparent;
-  border-bottom-color: #0e387a;  
+  color: #0e387a;
+  background: rgba(14,56,122,0.07);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
 }
 
 /* ---------- THEME TOGGLE ---------- */
@@ -206,10 +237,20 @@ body.dark-mode .cv-download-btn:hover {
 
 /* ---------- DARK MODE ---------- */
 body.dark-mode .site-header {
-  background: #020617;
-  border-bottom: 1px solid #111827;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  background: rgba(15,17,23,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 1px 24px rgba(0,0,0,0.4);
 }
+
+body.dark-mode .site-header.header-scrolled {
+  background: rgba(15,17,23,0.88);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .nav-link { color: #e5e7eb; }
+body.dark-mode .nav-link:hover { color: #93c5fd; background: rgba(147,197,253,0.08); }
+body.dark-mode .nav-link.active { color: #93c5fd; background: rgba(147,197,253,0.1); }
+body.dark-mode .nav-link::after { background: linear-gradient(90deg, #60a5fa, #a78bfa); }
 
 body.dark-mode .divider {
   background: #111827;

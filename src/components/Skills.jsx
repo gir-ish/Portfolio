@@ -50,7 +50,7 @@ export default function Skills() {
   return (
     <main className="skills-page">
       <section className="skills-container">
-        <h1 className="skills-heading">Skills &amp; Tech Stack</h1>
+        <h1 className="skills-heading scroll-reveal">Skills &amp; Tech Stack</h1>
         <p className="skills-sub">Tools and methods I use in research and engineering.</p>
 
         <div className="skills-groups">

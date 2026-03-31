@@ -14,6 +14,7 @@ export default function Header() {
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (dark) {
@@ -28,6 +29,7 @@ export default function Header() {
     const onScroll = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -36,7 +38,7 @@ export default function Header() {
   const handleNavClick = () => setMenuOpen(false);
 
   return (
-    <header className="site-header" role="banner">
+    <header className={`site-header${scrolled ? " header-scrolled" : ""}`} role="banner">
       {/* Scroll progress bar */}
       <div
         className="scroll-progress-bar"

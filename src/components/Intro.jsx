@@ -1,27 +1,64 @@
-// src/components/Intro.jsx
 import "./intro.css";
 import avatar from "../../public/girish.jpg";
 import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const TAGLINE = "Speech, Multimodal Learning and Audio Language Models";
+const TAGLINE    = "Speech, Multimodal Learning and Audio Language Models";
+const NAME       = "Girish";
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*";
 
 const INTERESTS = [
-  "Speech Processing",
-  "Multimodal Learning",
-  "Audio Language Models",
-  "Speech Deepfake Detection",
-  "Affective Computing",
-  "Speech for Healthcare",
+  "Speech Processing", "Multimodal Learning", "Audio Language Models",
+  "Speech Deepfake Detection", "Affective Computing", "Speech for Healthcare",
 ];
 
-// Heights (px) for each equalizer bar — 7 bars, irregular for organic feel
 const EQ_BARS = [14, 22, 28, 18, 26, 16, 24];
+
+/* ── Scramble hook ── */
+function useScramble(target, startDelay = 400) {
+  const [text, setText] = useState(target);
+  useEffect(() => {
+    let iteration = 0;
+    let interval;
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => {
+        setText(
+          target.split("").map((ch, idx) => {
+            if (idx < Math.floor(iteration)) return ch;
+            if (ch === " ") return " ";
+            return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+          }).join("")
+        );
+        iteration += 0.4;
+        if (iteration >= target.length + 1) { clearInterval(interval); setText(target); }
+      }, 40);
+    }, startDelay);
+    return () => { clearTimeout(timeout); clearInterval(interval); };
+  }, [target, startDelay]);
+  return text;
+}
+
+/* ── Wave text ── */
+function WaveText({ text, className }) {
+  return (
+    <span className={className} aria-label={text}>
+      {text.split("").map((ch, i) => (
+        <span key={i} className="wave-char" style={{ "--wi": i }} aria-hidden="true">
+          {ch === " " ? "\u00A0" : ch}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function Intro() {
   const [displayedText, setDisplayedText] = useState("");
-  const [cursorVisible, setCursorVisible] = useState(true);
+  const [cursorVisible, setCursorVisible]  = useState(true);
   const intervalRef = useRef(null);
+  const sectionRef  = useRef(null);
+  const scrambledName = useScramble(NAME, 300);
 
+  /* typewriter */
   useEffect(() => {
     let i = 0;
     intervalRef.current = setInterval(() => {
@@ -35,35 +72,41 @@ export default function Intro() {
     return () => clearInterval(intervalRef.current);
   }, []);
 
+  /* parallax on scroll */
+  const { scrollY } = useScroll();
+  const avatarY = useTransform(scrollY, [0, 400], [0, -40]);
+  const textY   = useTransform(scrollY, [0, 400], [0, -20]);
+
   return (
-    <section id="about" className="intro section">
+    <section id="about" className="intro section" ref={sectionRef}>
       <div className="page-grid">
 
-        {/* Column 1: Avatar wrap with pulse rings + equalizer */}
-        <div className="avatar-wrap">
+        {/* Column 1: Avatar + blob + equalizer */}
+        <motion.div className="avatar-wrap" style={{ y: avatarY }}>
+          {/* Morphing blob */}
+          <div className="blob" aria-hidden="true" />
+
           <img
             className="avatar"
             src={avatar}
             alt="Portrait of Girish"
-            width="335"
-            height="355"
-            loading="lazy"
-            decoding="async"
+            width="335" height="355"
+            loading="lazy" decoding="async"
           />
           <div className="equalizer" aria-hidden="true">
             {EQ_BARS.map((maxH, idx) => (
-              <span
-                key={idx}
-                className="eq-bar"
-                style={{ "--bar-max-h": `${maxH}px`, "--bar-i": idx }}
-              />
+              <span key={idx} className="eq-bar"
+                style={{ "--bar-max-h": `${maxH}px`, "--bar-i": idx }} />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Column 2: Text content */}
-        <div className="intro-col">
-          <h1 className="intro-name">Girish</h1>
+        <motion.div className="intro-col" style={{ y: textY }}>
+          {/* Scramble + glitch on name */}
+          <h1 className="intro-name glitch" data-text={scrambledName}>
+            {scrambledName}
+          </h1>
 
           <div className="intro-badge">
             U.G. Research Associate @ IIIT-Delhi &nbsp;|&nbsp; B.Tech (Hons.) '26 @ UPES
@@ -71,10 +114,7 @@ export default function Intro() {
 
           <h2 className="intro-tagline">
             {displayedText}
-            <span
-              className={cursorVisible ? "cursor blink" : "cursor"}
-              aria-hidden="true"
-            >|</span>
+            <span className={cursorVisible ? "cursor blink" : "cursor"} aria-hidden="true">|</span>
           </h2>
 
           <p className="intro-desc">
@@ -88,20 +128,14 @@ export default function Intro() {
             analysis for autism, and cross-domain modeling with speech foundation
             models, with the goal of building robust systems for real-world deployment.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Column 2 row 2: Research interest chips */}
+        {/* Research interest chips */}
         <div className="interests">
-          <h3 className="interests-title">Research Interests</h3>
+          <WaveText text="Research Interests" className="interests-title" />
           <div className="interest-chips">
             {INTERESTS.map((label, idx) => (
-              <span
-                key={label}
-                className="chip"
-                style={{ "--chip-i": idx }}
-              >
-                {label}
-              </span>
+              <span key={label} className="chip" style={{ "--chip-i": idx }}>{label}</span>
             ))}
           </div>
         </div>
