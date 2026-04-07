@@ -12,18 +12,8 @@ const TYPE = {
 const newsItems = [
   {
     date: "Apr 2026", type: "paper",
-    before: "Paper accepted at ", highlight: "ACL 2026 Main",
-    after: ' for \u201cProsody as Supervision: Bridging the Non-Verbal\u2013Verbal for Multilingual Speech Emotion Recognition.\u201d',
-  },
-  {
-    date: "Apr 2026", type: "paper",
-    before: "Two papers accepted at ", highlight: "ACL 2026 Findings",
-    after: " on neural audio codec speech deepfake detection in Indic languages and audio deepfake detection benchmarking in healthcare.",
-  },
-  {
-    date: "Apr 2026", type: "conference",
     before: "Three papers accepted at ", highlight: "ACL 2026",
-    after: " (1 Main + 2 Findings), covering multilingual speech emotion recognition, Indic deepfake detection, and healthcare audio deepfake benchmarking.",
+    after: " \u2014 1 Main paper (\u201cProsody as Supervision: Bridging the Non-Verbal\u2013Verbal for Multilingual Speech Emotion Recognition\u201d) and 2 Findings papers on Indic speech deepfake detection and healthcare audio deepfake benchmarking.",
   },
   {
     date: "Jan 2026", type: "award",

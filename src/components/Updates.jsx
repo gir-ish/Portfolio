@@ -2,6 +2,12 @@ import "./updates.css";
 
 const newsItems = [
   {
+    date: "Apr 2026",
+    before: "Three papers accepted at ",
+    highlight: "ACL 2026",
+    after: " \u2014 1 Main paper on multilingual speech emotion recognition and 2 Findings papers on Indic deepfake detection and healthcare audio deepfake benchmarking.",
+  },
+  {
     date: "Jan 2026",
     before: "Two papers accepted at ",
     highlight: "EACL 2026 Main",
@@ -139,7 +145,7 @@ export default function Updates() {
           </div>
 
           <footer className="site-footer">
-            © 2026 Girish. Last updated: Mar 2026.
+            © 2026 Girish. Last updated: Apr 2026.
           </footer>
         </div>
       </div>
