@@ -7,6 +7,27 @@ import CitationChart   from "./CitationChart";
 const confPubs = [
   {
     year: 2026,
+    title: "Prosody as Supervision: Bridging the Non-Verbal–Verbal for Multilingual Speech Emotion Recognition",
+    authors: "Girish*, Mohd Mujtaba Akhtar*, Muskaan Singh",
+    venue: "ACL 2026 Main",
+    pdf: "#",
+  },
+  {
+    year: 2026,
+    title: "Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages",
+    authors: "Girish*, Mohd Mujtaba Akhtar*, Orchid Chetia Phukan*, Arun Balaji Buduru",
+    venue: "ACL 2026 Findings",
+    pdf: "#",
+  },
+  {
+    year: 2026,
+    title: "HCFD: A Benchmark for Audio Deepfake Detection in Healthcare",
+    authors: "Mohd Mujtaba Akhtar*, Girish*, Muskaan Singh",
+    venue: "ACL 2026 Findings",
+    pdf: "#",
+  },
+  {
+    year: 2026,
     title: "Bridging Attribution and Open-Set Detection using Graph-Augmented Instance Learning in Synthetic Speech",
     authors: "Mohd Mujtaba Akhtar*, Girish*, Farhan Sheth, Muskaan Singh",
     venue: "EACL 2026 Main",
@@ -140,7 +161,7 @@ const confPubs = [
   },
 ];
 
-const VENUE_FILTERS = ["All", "EACL", "INTERSPEECH", "IJCNLP-AACL", "EUSIPCO", "APSIPA", "ICASSP"];
+const VENUE_FILTERS = ["All", "ACL", "EACL", "INTERSPEECH", "IJCNLP-AACL", "EUSIPCO", "APSIPA", "ICASSP"];
 
 function highlightAuthor(text) {
   return text
