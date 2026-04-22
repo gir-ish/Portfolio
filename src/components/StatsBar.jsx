@@ -4,7 +4,7 @@ import "./StatsBar.css";
 const SCHOLAR_URL = "https://scholar.google.com/citations?user=4HIGa7AAAAAJ&hl=en";
 
 const STATIC_STATS = [
-  { value: 19, label: "Publications", icon: "📄" },
+  { value: 22, label: "Publications", icon: "📄" },
   { value: 5,  label: "Experiences",  icon: "💼" },
   { value: 3,  label: "Awards",       icon: "🏆" },
   { value: 4,  label: "Projects",     icon: "⚙️" },
