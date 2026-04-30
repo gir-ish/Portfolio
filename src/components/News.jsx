@@ -12,6 +12,11 @@ const TYPE = {
 const newsItems = [
   {
     date: "Apr 2026", type: "paper",
+    before: "Paper accepted at ", highlight: "IJCAI 2026",
+    after: " \u2014 \u201CBridging the SEA Gap: An Initial Benchmark for Neural Audio Codec-Synthesized Speech Deepfakes in South-East Asian Languages.\u201D",
+  },
+  {
+    date: "Apr 2026", type: "paper",
     before: "Three papers accepted at ", highlight: "ACL 2026",
     after: " \u2014 1 Main paper (\u201cProsody as Supervision: Bridging the Non-Verbal\u2013Verbal for Multilingual Speech Emotion Recognition\u201d) and 2 Findings papers on Indic speech deepfake detection and healthcare audio deepfake benchmarking.",
   },
@@ -27,12 +32,12 @@ const newsItems = [
   },
   {
     date: "Oct 2025", type: "conference",
-    before: "Presented papers at ", highlight: "IJCNLP–AACL 2025",
+    before: "Presented papers at ", highlight: "IJCNLP\u2013AACL 2025",
     after: ", including a main conference paper and a Findings paper on synthetic speech detection and attribution.",
   },
   {
     date: "Oct 2025", type: "paper",
-    before: "Paper accepted at ", highlight: "IJCNLP–AACL 2025 Findings",
+    before: "Paper accepted at ", highlight: "IJCNLP\u2013AACL 2025 Findings",
     after: ".",
   },
   {
@@ -66,7 +71,7 @@ const newsItems = [
     after: " on modality-binding foundation models for non-verbal emotion recognition.",
   },
   {
-    date: "2024–Present", type: "service",
+    date: "2024\u2013Present", type: "service",
     before: "", highlight: "ISCA Team Volunteer",
     after: ", contributing to script development and co-hosting episodes on speech technology and AI; also serving as a reviewer for ICASSP 2026.",
   },
@@ -81,27 +86,27 @@ const newsItems = [
     after: " on code-switched autism detection in children.",
   },
   {
-    date: "Jul–Aug 2024", type: "work",
+    date: "Jul\u2013Aug 2024", type: "work",
     before: "Worked as AI Research Engineer at ", highlight: "ARTVIEWINGS LLC (San Jose, USA)",
     after: ", developing a multilingual audio-visual question answering system using MERA and ensemble methods.",
   },
   {
-    date: "Jun–Jul 2024", type: "work",
+    date: "Jun\u2013Jul 2024", type: "work",
     before: "Worked as Computer Vision Intern at ", highlight: "Suratec Co. Ltd. (Bangkok, Thailand)",
     after: ", building a golf swing phase detection and analysis application with real-time feedback.",
   },
   {
-    date: "Jun 2024–Present", type: "work",
+    date: "Jun 2024\u2013Present", type: "work",
     before: "Joined ", highlight: "IIIT-Delhi",
     after: " as an Undergraduate Research Assistant, working on deepfake detection, speech emotion recognition, multimodal AI, and Audio Language Models.",
   },
   {
-    date: "May–Jun 2024", type: "work",
+    date: "May\u2013Jun 2024", type: "work",
     before: "Worked with ", highlight: "Reliance Jio AICoE",
     after: " as an ML Engineer, evaluating speech foundation models for stress recognition and physiological signal understanding.",
   },
   {
-    date: "Dec 2023–Present", type: "work",
+    date: "Dec 2023\u2013Present", type: "work",
     before: "Joined ", highlight: "Ulster University (UK)",
     after: " as an Undergraduate Research Assistant, focusing on NLP and speech analysis for autism detection using code-switched speech.",
   },

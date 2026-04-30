@@ -3,6 +3,12 @@ import "./updates.css";
 const newsItems = [
   {
     date: "Apr 2026",
+    before: "Paper accepted at ",
+    highlight: "IJCAI 2026",
+    after: " for \u201CBridging the SEA Gap: An Initial Benchmark for Neural Audio Codec-Synthesized Speech Deepfakes in South-East Asian Languages.\u201D",
+  },
+  {
+    date: "Apr 2026",
     before: "Three papers accepted at ",
     highlight: "ACL 2026",
     after: " \u2014 1 Main paper on multilingual speech emotion recognition and 2 Findings papers on Indic deepfake detection and healthcare audio deepfake benchmarking.",
@@ -17,18 +23,18 @@ const newsItems = [
     date: "Jan 2026",
     before: "Received the ",
     highlight: "Social Impact Award",
-    after: " at EACL 2026 for the paper “DIVINE: Coordinating Multimodal Disentangled Representations for Oro-Facial Neurological Disorder Assessment.”",
+    after: " at EACL 2026 for the paper \u201CDIVINE: Coordinating Multimodal Disentangled Representations for Oro-Facial Neurological Disorder Assessment.\u201D",
   },
   {
     date: "Oct 2025",
     before: "Presented papers at ",
-    highlight: "IJCNLP–AACL 2025",
+    highlight: "IJCNLP\u2013AACL 2025",
     after: ", including a main conference paper and a Findings paper on synthetic speech detection and attribution.",
   },
   {
     date: "Oct 2025",
     before: "Paper accepted at ",
-    highlight: "IJCNLP–AACL 2025 Findings",
+    highlight: "IJCNLP\u2013AACL 2025 Findings",
     after: ".",
   },
   {
@@ -47,7 +53,7 @@ const newsItems = [
     date: "Jun 2025",
     before: "Paper accepted at ",
     highlight: "INTERSPEECH 2025 (Oral)",
-    after: " for “HYFuse: Aligning Heterogeneous Speech Pre-Trained Representations in Hyperbolic Space for Speech Emotion Recognition.”",
+    after: " for \u201CHYFuse: Aligning Heterogeneous Speech Pre-Trained Representations in Hyperbolic Space for Speech Emotion Recognition.\u201D",
   },
   {
     date: "2025",
@@ -68,7 +74,7 @@ const newsItems = [
     after: " on modality-binding foundation models for non-verbal emotion recognition.",
   },
   {
-    date: "2024–Present",
+    date: "2024\u2013Present",
     before: "",
     highlight: "ISCA Team Volunteer",
     after: ", contributing to script development and co-hosting episodes on speech technology and AI; also serving as a reviewer for ICASSP 2026.",
@@ -86,31 +92,31 @@ const newsItems = [
     after: " on code-switched autism detection in children.",
   },
   {
-    date: "Jul–Aug 2024",
+    date: "Jul\u2013Aug 2024",
     before: "Worked as AI Research Engineer at ",
     highlight: "ARTVIEWINGS LLC (San Jose, USA)",
     after: ", developing a multilingual audio-visual question answering system using MERA and ensemble methods.",
   },
   {
-    date: "Jun–Jul 2024",
+    date: "Jun\u2013Jul 2024",
     before: "Worked as Computer Vision Intern at ",
     highlight: "Suratec Co. Ltd. (Bangkok, Thailand)",
     after: ", building a golf swing phase detection and analysis application with real-time feedback.",
   },
   {
-    date: "Jun 2024–Present",
+    date: "Jun 2024\u2013Present",
     before: "Joined ",
     highlight: "IIIT-Delhi",
     after: " as an Undergraduate Research Assistant, working on deepfake detection, speech emotion recognition, multimodal AI, and Audio Language Models.",
   },
   {
-    date: "May–Jun 2024",
+    date: "May\u2013Jun 2024",
     before: "Worked with ",
     highlight: "Reliance Jio AICoE",
     after: " as an ML Engineer, evaluating speech foundation models for stress recognition and physiological signal understanding.",
   },
   {
-    date: "Dec 2023–Present",
+    date: "Dec 2023\u2013Present",
     before: "Joined ",
     highlight: "Ulster University (UK)",
     after: " as an Undergraduate Research Assistant, focusing on NLP and speech analysis for autism detection using code-switched speech.",

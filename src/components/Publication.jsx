@@ -7,6 +7,13 @@ import CitationChart   from "./CitationChart";
 const confPubs = [
   {
     year: 2026,
+    title: "Bridging the SEA Gap: An Initial Benchmark for Neural Audio Codec-Synthesized Speech Deepfakes in South-East Asian Languages",
+    authors: "Orchid Chetia Phukan*, Girish*, Mohd Mujtaba Akhtar*, Arun Balaji Buduru",
+    venue: "IJCAI 2026",
+    pdf: "#",
+  },
+  {
+    year: 2026,
     title: "Prosody as Supervision: Bridging the Non-Verbal–Verbal for Multilingual Speech Emotion Recognition",
     authors: "Girish*, Mohd Mujtaba Akhtar*, Muskaan Singh",
     venue: "ACL 2026 Main",
@@ -161,7 +168,7 @@ const confPubs = [
   },
 ];
 
-const VENUE_FILTERS = ["All", "ACL", "EACL", "INTERSPEECH", "IJCNLP-AACL", "EUSIPCO", "APSIPA", "ICASSP"];
+const VENUE_FILTERS = ["All", "IJCAI", "ACL", "EACL", "INTERSPEECH", "IJCNLP-AACL", "EUSIPCO", "APSIPA", "ICASSP"];
 
 function highlightAuthor(text) {
   return text
