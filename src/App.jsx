@@ -109,7 +109,7 @@ export default function App() {
       <footer className="site-footer" aria-label="Footer">
         <div className="page">
           <p className="footer-text">
-            © {year} Girish. Last updated: Mar 2026.
+            © {year} Girish. Last updated: Jun 2026.
           </p>
         </div>
       </footer>

@@ -1,4 +1,5 @@
 import "./Skills.css";
+import { FaGithub } from "react-icons/fa6";
 
 const skillGroups = [
   {
@@ -46,6 +47,24 @@ const skillGroups = [
   },
 ];
 
+const researchLibs = [
+  {
+    name: "Neural Codecs",
+    github: "https://github.com/CodeVault-girish/Neural-Codecs",
+    desc: "Library for generating neural codec-processed audio datasets using multiple codec models for speech synthesis, deepfake detection, and audio representation research.",
+  },
+  {
+    name: "SFM Models",
+    github: "https://github.com/CodeVault-girish/SFM-models",
+    desc: "Speech foundation model toolkit for extracting embeddings from speech audio using large-scale pre-trained speech models.",
+  },
+  {
+    name: "MFM Models",
+    github: "https://github.com/CodeVault-girish/MFM-models",
+    desc: "Music foundation model toolkit for extracting embeddings from music/audio signals using pre-trained music and multimodal foundation models.",
+  },
+];
+
 export default function Skills() {
   return (
     <main className="skills-page">
@@ -84,6 +103,30 @@ export default function Skills() {
             </div>
           ))}
         </div>
+
+        {/* ── Research Software & Libraries ── */}
+        <section className="research-libs scroll-reveal">
+          <div className="skill-group-header rlib-header-bar">
+            <span className="skill-group-icon">🔬</span>
+            <h2 className="skill-group-title rlib-title">Research Software &amp; Libraries</h2>
+          </div>
+
+          <div className="rlib-list">
+            {researchLibs.map((lib) => (
+              <div key={lib.name} className="rlib-card">
+                <div className="rlib-row">
+                  <span className="rlib-name">{lib.name}</span>
+                  {lib.github && lib.github !== "#" && (
+                    <a href={lib.github} className="rlib-gh-btn" target="_blank" rel="noopener noreferrer">
+                      <FaGithub /> GitHub ↗
+                    </a>
+                  )}
+                </div>
+                <p className="rlib-desc">{lib.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </section>
     </main>
   );

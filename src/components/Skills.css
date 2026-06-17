@@ -86,12 +86,94 @@
   box-shadow: 0 4px 12px color-mix(in srgb, var(--tag-color, #0e387a) 20%, transparent);
 }
 
+/* ── Research Software & Libraries ── */
+.research-libs {
+  margin-top: 52px;
+  padding-top: 40px;
+  border-top: 1.5px solid var(--border, #e5e7eb);
+}
+
+.rlib-header-bar { border-left-color: #7c3aed !important; }
+.rlib-title { color: #7c3aed !important; }
+
+.rlib-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 18px;
+}
+
+.rlib-card {
+  background: #f5f3ff;
+  border: 1.5px solid #ddd6fe;
+  border-radius: 12px;
+  padding: 18px 22px;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.rlib-card:hover {
+  box-shadow: 0 4px 18px rgba(124,58,237,0.13);
+  transform: translateY(-2px);
+}
+
+.rlib-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.rlib-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.rlib-gh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #059669;
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1.5px solid #059669;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.rlib-gh-btn:hover { background: #059669; color: #fff; }
+
+.rlib-desc {
+  margin: 0;
+  font-size: 0.91rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
 /* ── Dark mode ── */
 body.dark-mode .skills-sub { color: #94a3b8; }
 
 body.dark-mode .skill-group-header { border-left-color: #60a5fa; }
 
 body.dark-mode .skill-group-title { color: #e2e8f0; }
+
+body.dark-mode .research-libs { border-top-color: rgba(255,255,255,0.08); }
+
+body.dark-mode .rlib-card {
+  background: rgba(124,58,237,0.07);
+  border-color: rgba(124,58,237,0.28);
+}
+
+body.dark-mode .rlib-name  { color: #c4b5fd; }
+body.dark-mode .rlib-title { color: #c4b5fd !important; }
+body.dark-mode .rlib-desc  { color: #94a3b8; }
+
+body.dark-mode .rlib-gh-btn { border-color: #34d399; color: #34d399; }
+body.dark-mode .rlib-gh-btn:hover { background: #34d399; color: #0f172a; }
 
 body.dark-mode .skill-tag {
   background: color-mix(in srgb, var(--tag-color, #0e387a) 12%, #1e293b);
@@ -115,4 +197,10 @@ body.dark-mode .skill-tag {
   }
 
   .skill-group-header { padding-left: 10px; }
+
+  .rlib-list  { padding-left: 0; }
+  .rlib-card  { padding: 14px 16px; }
+  .rlib-name  { font-size: 0.92rem; }
+  .rlib-desc  { font-size: 0.84rem; }
+  .rlib-row   { flex-wrap: wrap; }
 }

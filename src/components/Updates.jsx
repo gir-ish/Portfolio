@@ -2,6 +2,12 @@ import "./updates.css";
 
 const newsItems = [
   {
+    date: "Jun 2026",
+    before: "Four papers accepted at ",
+    highlight: "INTERSPEECH 2026",
+    after: " — including work on cross-lingual Alzheimer detection, neural audio codec synthesized heart sounds, tuberculosis detection from cough audio, and elderly speech deepfake detection.",
+  },
+  {
     date: "Apr 2026",
     before: "Paper accepted at ",
     highlight: "IJCAI 2026",
@@ -151,7 +157,7 @@ export default function Updates() {
           </div>
 
           <footer className="site-footer">
-            © 2026 Girish. Last updated: Apr 2026.
+            © 2026 Girish. Last updated: Jun 2026.
           </footer>
         </div>
       </div>

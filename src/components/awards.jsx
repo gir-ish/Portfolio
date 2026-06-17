@@ -29,16 +29,17 @@ const Awards = () => {
 
           <li className="award-item">
             <div className="award-text">
-              Serving as a <strong>Reviewer for ICASSP 2026</strong>, contributing
+              Serving as a <strong>Reviewer for ICASSP 2026 and ACM Multimedia 2026</strong>, and
+              as a <strong>Program Committee Member for EMNLP 2026</strong>, contributing
               to the peer-review process in{" "}
               <span style={{ color: "#0e387a" }}>
-                speech and audio processing
+                speech, audio, and natural language processing
               </span>
               .
             </div>
             <div className="award-tags">
               <span className="tag tag--gold">2026</span>
-              <span className="tag tag--maroon">REVIEWER</span>
+              <span className="tag tag--maroon">SERVICE</span>
             </div>
           </li>
 

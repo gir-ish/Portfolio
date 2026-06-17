@@ -27,6 +27,13 @@ const AUTHOR_META = {
   "Panchal Nayak":          { initials: "PN",  color: "#7e22ce" },
   "Parabattina Bhagath":    { initials: "PBh", color: "#b91c1c" },
   "Santanu Roy":            { initials: "SR",  color: "#0369a1" },
+  "Juliana Gerard":         { initials: "JG",  color: "#047857" },
+  "Paula McClean":          { initials: "PMc", color: "#f59e0b" },
+  "Kongfatt Wong-Lin":      { initials: "KW",  color: "#6366f1" },
+  "Bhavinkumar Vinodbhai Kuwar": { initials: "BK", color: "#84cc16" },
+  "Sanjam Wadhwa":          { initials: "SW",  color: "#ec4899" },
+  "Ning Ma":                { initials: "NM",  color: "#14b8a6" },
+  "Chi-Chun Lee":           { initials: "CC",  color: "#f97316" },
 };
 
 function getMeta(name) {
@@ -53,6 +60,10 @@ const PUBS = [
   { authors: ["Girish", "Orchid Chetia Phukan", "Mohd Mujtaba Akhtar"] },
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Orchid Chetia Phukan", "Muskaan Singh"] },
   { authors: ["Girish", "Orchid Chetia Phukan", "Mohd Mujtaba Akhtar", "Swarup Ranjan Behera", "Pailla Balakrishna Reddy", "Arun Balaji Buduru", "Rajesh Sharma"] },
+  { authors: ["Girish", "Mohd Mujtaba Akhtar", "Farhan Sheth", "Muskaan Singh", "Juliana Gerard", "Paula McClean", "Kongfatt Wong-Lin"] },
+  { authors: ["Girish", "Orchid Chetia Phukan", "Mohd Mujtaba Akhtar", "Bhavinkumar Vinodbhai Kuwar", "Swarup Ranjan Behera", "Arun Balaji Buduru"] },
+  { authors: ["Mohd Mujtaba Akhtar", "Girish", "Sanjam Wadhwa", "Muskaan Singh", "Ning Ma"] },
+  { authors: ["Orchid Chetia Phukan", "Girish", "Mohd Mujtaba Akhtar", "Chi-Chun Lee"] },
 ];
 
 function buildGraph() {

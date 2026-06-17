@@ -11,6 +11,11 @@ const TYPE = {
 
 const newsItems = [
   {
+    date: "Jun 2026", type: "paper",
+    before: "Four papers accepted at ", highlight: "INTERSPEECH 2026",
+    after: " — including work on cross-lingual Alzheimer detection, neural audio codec synthesized heart sounds, tuberculosis detection from cough audio, and elderly speech deepfake detection.",
+  },
+  {
     date: "Apr 2026", type: "paper",
     before: "Paper accepted at ", highlight: "IJCAI 2026",
     after: " \u2014 \u201CBridging the SEA Gap: An Initial Benchmark for Neural Audio Codec-Synthesized Speech Deepfakes in South-East Asian Languages.\u201D",
@@ -46,6 +51,11 @@ const newsItems = [
     after: " to attend INTERSPEECH 2025 in Rotterdam, The Netherlands.",
   },
   {
+    date: "Jun–Jul 2025", type: "work",
+    before: "Worked as AI Research Intern at ", highlight: "IBM",
+    after: ", developing agentic AI workflows for LLM-powered recommendation systems across multiple domains, integrating reasoning-based agents, domain-specific retrieval, and adaptive recommendation pipelines to improve personalization and decision support.",
+  },
+  {
     date: "Jun 2025", type: "paper",
     before: "Seven papers, including an oral paper on speech emotion recognition, were accepted at ", highlight: "INTERSPEECH 2025",
     after: ".",
@@ -73,7 +83,7 @@ const newsItems = [
   {
     date: "2024\u2013Present", type: "service",
     before: "", highlight: "ISCA Team Volunteer",
-    after: ", contributing to script development and co-hosting episodes on speech technology and AI; also serving as a reviewer for ICASSP 2026.",
+    after: ", contributing to script development and co-hosting episodes on speech technology and AI; serving as a reviewer for ICASSP 2026 and ACM Multimedia 2026; and as Program Committee Member for EMNLP 2026.",
   },
   {
     date: "Oct 2024", type: "award",
