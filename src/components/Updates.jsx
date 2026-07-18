@@ -2,10 +2,16 @@ import "./updates.css";
 
 const newsItems = [
   {
+    date: "Aug 2026",
+    before: "Project ",
+    highlight: "Memoir: Adaptive Audiobooks for Memory Care",
+    after: " selected for the Idiap Create Challenge 2026 at Idiap Research Institute, Martigny, Switzerland (Aug 20–28, 2026).",
+  },
+  {
     date: "Jun 2026",
     before: "Four papers accepted at ",
     highlight: "INTERSPEECH 2026",
-    after: " — including work on cross-lingual Alzheimer detection, neural audio codec synthesized heart sounds, tuberculosis detection from cough audio, and elderly speech deepfake detection.",
+    after: " — 3 oral papers (Alzheimer detection, tuberculosis from cough audio, elderly speech deepfake) and 1 paper on neural audio codec synthesized heart sounds.",
   },
   {
     date: "Apr 2026",
@@ -157,7 +163,7 @@ export default function Updates() {
           </div>
 
           <footer className="site-footer">
-            © 2026 Girish. Last updated: Jun 2026.
+            © 2026 Girish. Last updated: Jul 2026.
           </footer>
         </div>
       </div>

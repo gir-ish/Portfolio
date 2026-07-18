@@ -14,6 +14,22 @@ const Awards = () => {
         <ul className="awards-list">
           <li className="award-item">
             <div className="award-text">
+              Project{" "}
+              <strong>Memoir: Adaptive Audiobooks for Memory Care</strong>{" "}
+              selected for the{" "}
+              <span style={{ color: "#0e387a" }}>Idiap Create Challenge 2026</span>{" "}
+              at the Idiap Research Institute, Martigny, Switzerland — invited to participate
+              onsite (Aug 20–28, 2026) and contribute to an AI-powered adaptive audiobook
+              platform delivering personalized memory-care support.
+            </div>
+            <div className="award-tags">
+              <span className="tag tag--gold">AUG 2026</span>
+              <span className="tag tag--maroon">SELECTED PROJECT</span>
+            </div>
+          </li>
+
+          <li className="award-item">
+            <div className="award-text">
               Awarded the <strong>Social Impact Award</strong> at{" "}
               <span style={{ color: "#0e387a" }}>EACL 2026</span> for the paper{" "}
               <em>

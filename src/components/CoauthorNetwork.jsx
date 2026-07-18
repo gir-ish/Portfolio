@@ -61,6 +61,7 @@ const PUBS = [
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Orchid Chetia Phukan", "Muskaan Singh"] },
   { authors: ["Girish", "Orchid Chetia Phukan", "Mohd Mujtaba Akhtar", "Swarup Ranjan Behera", "Pailla Balakrishna Reddy", "Arun Balaji Buduru", "Rajesh Sharma"] },
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Farhan Sheth", "Muskaan Singh", "Juliana Gerard", "Paula McClean", "Kongfatt Wong-Lin"] },
+  { authors: ["Farhan Sheth", "Mohd Mujtaba Akhtar", "Girish", "Muskaan Singh", "Juliana Gerard", "Paula McClean", "Kongfatt Wong-Lin"] },
   { authors: ["Girish", "Orchid Chetia Phukan", "Mohd Mujtaba Akhtar", "Bhavinkumar Vinodbhai Kuwar", "Swarup Ranjan Behera", "Arun Balaji Buduru"] },
   { authors: ["Mohd Mujtaba Akhtar", "Girish", "Sanjam Wadhwa", "Muskaan Singh", "Ning Ma"] },
   { authors: ["Orchid Chetia Phukan", "Girish", "Mohd Mujtaba Akhtar", "Chi-Chun Lee"] },

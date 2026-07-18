@@ -9,7 +9,7 @@ const confPubs = [
     year: 2026,
     title: "Synergizing Zero-Shot Cross-Lingual Alzheimer Detection with Language Invariant Multimodal Bi-Geometric Adversarial Learning",
     authors: "Girish*, Mohd Mujtaba Akhtar*, Farhan Sheth, Muskaan Singh, Juliana Gerard, Paula McClean, Kongfatt Wong-Lin",
-    venue: "INTERSPEECH 2026",
+    venue: "INTERSPEECH 2026 (Oral)",
     pdf: "https://arxiv.org/html/2606.17254v1",
   },
   {
@@ -23,14 +23,21 @@ const confPubs = [
     year: 2026,
     title: "From Signals to Patterns: Non-Invasive Tuberculosis Detection from Cough Audio using Bandit Weighted Hyperbolic Prototypes",
     authors: "Mohd Mujtaba Akhtar*, Girish*, Sanjam Wadhwa, Muskaan Singh, Ning Ma",
-    venue: "INTERSPEECH 2026",
+    venue: "INTERSPEECH 2026 (Oral)",
     pdf: "https://arxiv.org/html/2606.17337v1",
   },
   {
     year: 2026,
     title: "Bridging the Age Gap: Towards Detecting Neural Audio Codec Synthesized Elderly Speech Deepfake",
     authors: "Orchid Chetia Phukan*, Girish*, Mohd Mujtaba Akhtar*, Chi-Chun Lee",
-    venue: "INTERSPEECH 2026",
+    venue: "INTERSPEECH 2026 (Oral)",
+    pdf: "#",
+  },
+  {
+    year: 2026,
+    title: "Uc-PrUn: Uncertainty-Calibrated Machine Unlearning using Vision–Language Models for Clinical Decision Support",
+    authors: "Farhan Sheth, Mohd Mujtaba Akhtar, Girish, Muskaan Singh, Juliana Gerard, Paula McClean, Kongfatt Wong-Lin",
+    venue: "ACM Transactions on Computing for Healthcare 2026",
     pdf: "#",
   },
   {
@@ -248,7 +255,7 @@ export default function Publications() {
   return (
     <section id="publications" className="pubs-page" aria-labelledby="pubs-title">
       <div className="wrap">
-        <h2 id="pubs-title" className="pubs-heading scroll-reveal">Conference publications</h2>
+        <h2 id="pubs-title" className="pubs-heading scroll-reveal">Publications</h2>
 
         {/* Search + Venue filter */}
         <div className="pubs-controls">

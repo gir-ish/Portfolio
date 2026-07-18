@@ -11,9 +11,19 @@ const TYPE = {
 
 const newsItems = [
   {
+    date: "Aug 2026", type: "award",
+    before: "Project ", highlight: "Memoir: Adaptive Audiobooks for Memory Care",
+    after: " selected for the Idiap Create Challenge 2026 at the Idiap Research Institute, Martigny, Switzerland (Aug 20–28, 2026) — invited to participate onsite and contribute to an AI-powered adaptive audiobook platform for personalized memory-care support.",
+  },
+  {
+    date: "2026", type: "paper",
+    before: "Paper accepted at ", highlight: "ACM Transactions on Computing for Healthcare 2026",
+    after: " — “Uc-PrUn: Uncertainty-Calibrated Machine Unlearning using Vision–Language Models for Clinical Decision Support.”",
+  },
+  {
     date: "Jun 2026", type: "paper",
     before: "Four papers accepted at ", highlight: "INTERSPEECH 2026",
-    after: " — including work on cross-lingual Alzheimer detection, neural audio codec synthesized heart sounds, tuberculosis detection from cough audio, and elderly speech deepfake detection.",
+    after: " — including 3 oral presentations: cross-lingual Alzheimer detection, tuberculosis detection from cough audio, and elderly speech deepfake detection; plus a paper on neural audio codec synthesized heart sounds.",
   },
   {
     date: "Apr 2026", type: "paper",
