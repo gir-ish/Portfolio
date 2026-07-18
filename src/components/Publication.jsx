@@ -17,7 +17,7 @@ const confPubs = [
     title: "Towards Detecting Neural Audio Codec Synthesized Heart Sounds",
     authors: "Girish*, Orchid Chetia Phukan*, Mohd Mujtaba Akhtar*, Bhavinkumar Vinodbhai Kuwar, Swarup Ranjan Behera, Arun Balaji Buduru",
     venue: "INTERSPEECH 2026",
-    pdf: "#",
+    pdf: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4HIGa7AAAAAJ&sortby=pubdate&citation_for_view=4HIGa7AAAAAJ:Wp0gIr-vW9MC",
   },
   {
     year: 2026,
@@ -31,7 +31,7 @@ const confPubs = [
     title: "Bridging the Age Gap: Towards Detecting Neural Audio Codec Synthesized Elderly Speech Deepfake",
     authors: "Orchid Chetia Phukan*, Girish*, Mohd Mujtaba Akhtar*, Chi-Chun Lee",
     venue: "INTERSPEECH 2026 (Oral)",
-    pdf: "#",
+    pdf: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=4HIGa7AAAAAJ&sortby=pubdate&citation_for_view=4HIGa7AAAAAJ:mVmsd5A6BfQC",
   },
   {
     year: 2026,
