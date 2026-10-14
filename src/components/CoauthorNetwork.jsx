@@ -42,6 +42,7 @@ function getMeta(name) {
 
 /* ── Build graph from publications ── */
 const PUBS = [
+  { authors: ["Girish", "Mohd Mujtaba Akhtar", "Muskaan Singh", "Juliana Gerard", "Paula McClean", "Kongfatt Wong-Lin"] },
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Farhan Sheth", "Muskaan Singh"] },
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Muskaan Singh"] },
   { authors: ["Girish", "Mohd Mujtaba Akhtar", "Farhan Sheth", "Muskaan Singh"] },

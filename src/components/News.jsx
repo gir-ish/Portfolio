@@ -11,6 +11,11 @@ const TYPE = {
 
 const newsItems = [
   {
+    date: "2026", type: "paper",
+    before: "Paper accepted at ", highlight: "IEEE Signal Processing Letters (SPL) 2026",
+    after: " \u2014 \u201CA Paralinguistic Audio\u2013Language Modeling for Zero-Shot Cross-Lingual Alzheimer\u2019s Detection.\u201D",
+  },
+  {
     date: "Aug 2026", type: "award",
     before: "Project ", highlight: "Memoir: Adaptive Audiobooks for Memory Care",
     after: " selected for the Idiap Create Challenge 2026 at the Idiap Research Institute, Martigny, Switzerland (Aug 20–28, 2026) — invited to participate onsite and contribute to an AI-powered adaptive audiobook platform for personalized memory-care support.",

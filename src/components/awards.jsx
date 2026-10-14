@@ -107,7 +107,15 @@ const Awards = () => {
               <span style={{ color: "#0e387a" }}>
                 speech technology and AI advancements
               </span>
-              .
+              .{" "}
+              <a
+                className="award-link"
+                href="https://www.isca-students.org/sacweb/index.php/podcast"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Podcast &#8599;
+              </a>
             </div>
             <div className="award-tags">
               <span className="tag tag--gold">2024–PRESENT</span>
@@ -117,12 +125,21 @@ const Awards = () => {
 
           <li className="award-item">
             <div className="award-text">
-              Awarded <strong>First Runner-Up</strong> in the{" "}
+              Awarded the <strong>Silver Medal</strong> and secured{" "}
+              <strong>First Runner-Up</strong> in the{" "}
               <span style={{ color: "#0e387a" }}>
                 Technical Idea Presentation at ICE Day
               </span>
               , <strong>UPES Dehradun</strong> (22 October 2024), for a concept
-              related to speaker verification.
+              related to speaker verification.{" "}
+              <a
+                className="award-link"
+                href="https://drive.google.com/file/d/1oPyss39Z2xNc4ctKM1ymV4-19Jqv4CzI/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Certificate &#8599;
+              </a>
             </div>
             <div className="award-tags">
               <span className="tag tag--gold">OCT 2024</span>

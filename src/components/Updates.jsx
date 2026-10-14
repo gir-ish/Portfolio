@@ -2,6 +2,12 @@ import "./updates.css";
 
 const newsItems = [
   {
+    date: "2026",
+    before: "Paper accepted at ",
+    highlight: "IEEE Signal Processing Letters (SPL) 2026",
+    after: " \u2014 \u201CA Paralinguistic Audio\u2013Language Modeling for Zero-Shot Cross-Lingual Alzheimer\u2019s Detection.\u201D",
+  },
+  {
     date: "Aug 2026",
     before: "Project ",
     highlight: "Memoir: Adaptive Audiobooks for Memory Care",
